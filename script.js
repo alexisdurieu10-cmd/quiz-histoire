@@ -33,6 +33,7 @@ const texteEvenement = document.getElementById("evenement");
 const affichageScore = document.getElementById("score");
 const zoneFeedback   = document.getElementById("zone-feedback");
 const btnSuivant     = document.getElementById("btn-suivant");
+const btnValider     = document.getElementById("btn-valider");
 const btnDemarrer    = document.getElementById("btn-demarrer");
 
 // À ce stade, JavaScript a "lu" la page HTML et a une référence directe
@@ -118,6 +119,8 @@ function afficherQuestion() {
     // On vide le champ de saisie pour que le joueur reparte de zéro.
     // .value correspond à la valeur saisie dans un <input>.
     champAnnee.value = "";
+    champAnnee.disabled = false;
+    btnValider.disabled = false;
 
     // On replace le curseur dans le champ pour que le joueur puisse taper directement.
     champAnnee.focus();
@@ -174,6 +177,9 @@ function verifierReponse() {
         zoneFeedback.className = "feedback-incorrect";
         sonMauvaiseReponse();
     }
+
+    champAnnee.disabled = true;
+    btnValider.disabled = true;
 
     setTimeout(() => {
         btnSuivant.focus(); // Place le focus sur le bouton "Question suivante" pour que le joueur puisse appuyer sur Entrée.

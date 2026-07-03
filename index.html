@@ -88,15 +88,13 @@
         <!-- "return false" empêche le rechargement de la page (comportement par défaut des formulaires) -->
         <form onsubmit="verifierReponse(); return false;">
             <input
-                type="number"
+                type="text"
+                inputmode="text"
                 id="champ-annee"
                 placeholder="Année"
-                min="-999999"
-                max="2100"
             >
-            <!-- type="number" n'accepte que des chiffres -->
-            <!-- placeholder est le texte grisé affiché quand le champ est vide -->
-            <button type="submit">Valider</button>
+            <!-- type="text" pour permettre le tiret (-) sur mobile -->
+            <button type="submit" id="btn-valider">Valider</button>
         </form>
 
         <!-- Bouton pour passer à la question suivante -->

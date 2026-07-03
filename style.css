@@ -381,11 +381,6 @@ input[type="number"]:focus {
     border-color: #e94560;
 }
 
-/* Masque les flèches haut/bas sur les champs number (selon les navigateurs) */
-input[type="number"]::-webkit-inner-spin-button,
-input[type="number"]::-webkit-outer-spin-button {
-    -webkit-appearance: none;
-}
 
 /* ===== ZONE FEEDBACK (résultat de la réponse) ===== */
 #zone-feedback {
