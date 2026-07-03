@@ -1,0 +1,432 @@
+/* ===== RESET ET BASE ===== */
+/* Le navigateur applique des styles par défaut à tous les éléments.
+   On les remet à zéro pour partir sur une base propre. */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box; /* border-box = la bordure est incluse dans la taille de l'élément */
+}
+
+body {
+    /* On utilise une police sans serif moderne, avec des valeurs de repli si elle n'est pas disponible */
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #1a1a2e; /* Bleu nuit profond */
+    color: #eaeaea;            /* Texte clair pour le contraste */
+    /* Flexbox : système de mise en page moderne qui centre les éléments facilement */
+    display: flex;
+    justify-content: center; /* Centre horizontalement */
+    align-items: center;     /* Centre verticalement */
+    min-height: 100vh;       /* 100vh = 100% de la hauteur de la fenêtre du navigateur */
+}
+
+/* ===== CLASSE UTILITAIRE ===== */
+/* .cache masque un élément complètement (il n'occupe plus de place dans la page) */
+.cache {
+    display: none;
+}
+
+/* ===== STYLES COMMUNS AUX DEUX ÉCRANS ===== */
+/* On cible les deux ids en même temps avec une virgule */
+#ecran-accueil,
+#ecran-jeu {
+    background-color: #16213e;
+    border-radius: 12px;
+    padding: 24px;
+    max-width: 560px;
+    width: 90%;
+    text-align: center;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+}
+
+#grille-epoques {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: repeat(4, auto);
+    grid-auto-flow: column;
+    column-gap: 60px;
+    row-gap: 8px;
+    margin-top: 12px;
+}
+
+.cellule-epoque {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.icone-3d {
+    width: 80px;
+    height: 80px;
+    display: block;
+    margin: 0 auto 6px;
+}
+
+.cellule-epoque button {
+    width: 100%;
+    padding: 14px 8px;
+    font-size: 1rem;
+}
+
+/* ===== TYPOGRAPHIE ===== */
+h1 {
+    font-size: 2.2rem; /* rem = taille relative à la police de base du navigateur */
+    color: #e94560;    /* Rouge accent */
+    margin-bottom: 16px;
+}
+
+h2 {
+    font-size: 1.5rem;
+    color: #ffffff;
+    margin-bottom: 12px;
+    line-height: 1.4; /* Espacement entre les lignes */
+}
+
+p {
+    color: #a8b2d8;
+    margin-bottom: 20px;
+    line-height: 1.6;
+}
+
+/* ===== BOUTONS ===== */
+button {
+    background-color: #e94560;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    padding: 12px 32px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.2s ease, transform 0.25s ease, box-shadow 0.25s ease;
+    margin-top: 8px;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Reflet lumineux (bande inclinée qui balaie le bouton) */
+button::after {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -75%;
+    width: 50%;
+    height: 200%;
+    background: linear-gradient(
+        to right,
+        rgba(255, 255, 255, 0)    0%,
+        rgba(255, 255, 255, 0.55) 50%,
+        rgba(255, 255, 255, 0)    100%
+    );
+    transform: skewX(-20deg);
+}
+
+/* Halo intérieur radial qui pulse */
+button::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(ellipse at center, rgba(255,255,255,0.18) 0%, transparent 70%);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    pointer-events: none;
+}
+
+/* Boutons hors grille époque : animation sobre */
+button:hover,
+button:focus {
+    transform: translateY(-6px) scale(1.06);
+    animation: ultraGlow 0.9s ease-in-out infinite;
+}
+
+button:hover::before,
+button:focus::before {
+    opacity: 1;
+    animation: innerPulse 0.9s ease-in-out infinite;
+}
+
+button:hover::after,
+button:focus::after {
+    animation: shimmer 0.75s ease-in-out infinite;
+}
+
+@keyframes shimmer {
+    0%   { left: -75%; opacity: 0; }
+    10%  { opacity: 1; }
+    80%  { left: 125%; opacity: 1; }
+    100% { left: 125%; opacity: 0; }
+}
+
+@keyframes innerPulse {
+    0%, 100% { opacity: 0.3; transform: scale(1); }
+    50%       { opacity: 0.8; transform: scale(1.15); }
+}
+
+@keyframes ultraGlow {
+    0%, 100% {
+        box-shadow: 0 14px 35px rgba(0,0,0,0.5), 0 0 15px rgba(255,255,255,0.1);
+    }
+    50% {
+        box-shadow: 0 25px 60px rgba(0,0,0,0.65), 0 0 35px rgba(255,255,255,0.28);
+    }
+}
+
+/* ===== SURVOL / FOCUS DES BOUTONS D'ÉPOQUE : MODE CHAOS ===== */
+
+/* La cellule entière tremble violemment */
+.cellule-epoque:hover,
+.cellule-epoque:has(button:focus) {
+    animation: tremblementCellule 0.25s infinite;
+    z-index: 10;
+    position: relative;
+}
+
+@keyframes tremblementCellule {
+    0%   { transform: translate(0,0)      rotate(0deg)   scale(1); }
+    14%  { transform: translate(-6px,4px)  rotate(-3deg)  scale(1.06); }
+    28%  { transform: translate(6px,-5px)  rotate(3deg)   scale(1.04); }
+    42%  { transform: translate(-4px,-6px) rotate(-2deg)  scale(1.07); }
+    57%  { transform: translate(5px,5px)   rotate(2deg)   scale(1.05); }
+    71%  { transform: translate(-5px,2px)  rotate(-3deg)  scale(1.06); }
+    85%  { transform: translate(4px,-4px)  rotate(3deg)   scale(1.04); }
+    100% { transform: translate(0,0)      rotate(0deg)   scale(1); }
+}
+
+/* Le bouton d'époque : arc-en-ciel + tremblement + distorsion */
+.cellule-epoque button:hover,
+.cellule-epoque button:focus {
+    animation: boutonChaos 0.25s infinite, arcEnCiel 0.3s linear infinite !important;
+    transform: none;
+    outline: 4px solid white;
+}
+
+@keyframes boutonChaos {
+    0%   { transform: translate(0,0)    scale(1.15) skew(0deg,0deg); }
+    12%  { transform: translate(-3px,2px)  scale(1.22) skew(-4deg,2deg); }
+    25%  { transform: translate(4px,-3px)  scale(1.18) skew(4deg,-2deg); }
+    37%  { transform: translate(-4px,-3px) scale(1.25) skew(-3deg,-3deg); }
+    50%  { transform: translate(3px,4px)   scale(1.20) skew(3deg,3deg); }
+    62%  { transform: translate(-5px,2px)  scale(1.23) skew(-4deg,1deg); }
+    75%  { transform: translate(4px,-4px)  scale(1.17) skew(4deg,-1deg); }
+    87%  { transform: translate(-2px,3px)  scale(1.21) skew(-2deg,2deg); }
+    100% { transform: translate(0,0)    scale(1.15) skew(0deg,0deg); }
+}
+
+@keyframes arcEnCiel {
+    0%   { background-color: #ff0000; box-shadow: 0 0 25px #ff0000, 0 0 55px #ff0000, 0 0 100px #ff0000, inset 0 0 20px rgba(255,0,0,0.3); }
+    16%  { background-color: #ff7700; box-shadow: 0 0 25px #ff7700, 0 0 55px #ff7700, 0 0 100px #ff7700, inset 0 0 20px rgba(255,119,0,0.3); }
+    33%  { background-color: #bbbb00; box-shadow: 0 0 25px #ffff00, 0 0 55px #ffff00, 0 0 100px #ffff00, inset 0 0 20px rgba(255,255,0,0.3); }
+    50%  { background-color: #00aa00; box-shadow: 0 0 25px #00ff00, 0 0 55px #00ff00, 0 0 100px #00ff00, inset 0 0 20px rgba(0,255,0,0.3); }
+    66%  { background-color: #0044ff; box-shadow: 0 0 25px #0088ff, 0 0 55px #0088ff, 0 0 100px #0088ff, inset 0 0 20px rgba(0,136,255,0.3); }
+    83%  { background-color: #8800dd; box-shadow: 0 0 25px #cc00ff, 0 0 55px #cc00ff, 0 0 100px #cc00ff, inset 0 0 20px rgba(204,0,255,0.3); }
+    100% { background-color: #ff0000; box-shadow: 0 0 25px #ff0000, 0 0 55px #ff0000, 0 0 100px #ff0000, inset 0 0 20px rgba(255,0,0,0.3); }
+}
+
+/* Shimmer ultra-rapide sur le bouton d'époque */
+.cellule-epoque button:hover::after,
+.cellule-epoque button:focus::after {
+    animation: shimmer 0.2s linear infinite !important;
+}
+
+/* L'icône 3D tourne en mode épilepsie */
+.cellule-epoque:hover .icone-3d,
+.cellule-epoque:has(button:focus) .icone-3d {
+    animation: iconChaos 0.25s infinite;
+    filter: hue-rotate(0deg);
+}
+
+@keyframes iconChaos {
+    0%   { transform: scale(1.0) rotate(0deg); filter: hue-rotate(0deg)   brightness(1.5); }
+    25%  { transform: scale(1.4) rotate(-8deg); filter: hue-rotate(90deg)  brightness(2.5); }
+    50%  { transform: scale(0.9) rotate(8deg);  filter: hue-rotate(180deg) brightness(1.8); }
+    75%  { transform: scale(1.3) rotate(-5deg); filter: hue-rotate(270deg) brightness(2.2); }
+    100% { transform: scale(1.0) rotate(0deg);  filter: hue-rotate(360deg) brightness(1.5); }
+}
+
+/* Couleur de survol/focus pour les boutons génériques (rouge) */
+#btn-demarrer:hover, #btn-demarrer:focus,
+button[type="submit"]:hover, button[type="submit"]:focus,
+#btn-suivant:hover, #btn-suivant:focus {
+    background-color: #c73652;
+}
+
+/* :active = styles appliqués pendant le clic */
+button:active {
+    transform: translateY(0px);
+}
+
+/* ===== BOUTON TERMINER ===== */
+#btn-terminer {
+    background-color: transparent;
+    color: #a8b2d8;
+    border: 1px solid #a8b2d8;
+    font-size: 0.85rem;
+    padding: 8px 20px;
+    margin-top: 16px;
+    opacity: 0.6;
+}
+#btn-terminer:hover, #btn-terminer:focus {
+    background-color: transparent;
+    color: #e94560;
+    border-color: #e94560;
+    opacity: 1;
+}
+
+/* ===== COMPTEUR DE QUESTIONS ===== */
+small {
+    display: block;
+    color: #a8b2d8;
+    margin-top: 6px;
+    margin-bottom: 8px;
+    font-size: 0.8rem;
+}
+
+/* ===== BOUTONS D'ÉPOQUE ===== */
+.btn-prehistoire {
+    background-color: #7d4e1e; /* Ocre — peintures rupestres */
+}
+.btn-prehistoire:hover, .btn-prehistoire:focus {
+    background-color: #5e3a16;
+}
+
+.btn-antiquite {
+    background-color: #c8922a; /* Or antique */
+}
+.btn-antiquite:hover, .btn-antiquite:focus {
+    background-color: #a87520;
+}
+
+.btn-moyen-age {
+    background-color: #5a3e8a; /* Violet médiéval */
+}
+.btn-moyen-age:hover, .btn-moyen-age:focus {
+    background-color: #432d6b;
+}
+
+.btn-renaissance {
+    background-color: #2a7f5a; /* Vert renaissance */
+}
+.btn-renaissance:hover, .btn-renaissance:focus {
+    background-color: #1e5f42;
+}
+
+.btn-classique {
+    background-color: #1a5276; /* Bleu royal — Louis XIV */
+}
+.btn-classique:hover, .btn-classique:focus {
+    background-color: #154360;
+}
+
+.btn-premier-empire {
+    background-color: #4a235a; /* Violet impérial — Napoléon */
+}
+.btn-premier-empire:hover, .btn-premier-empire:focus {
+    background-color: #341a40;
+}
+
+.btn-second-empire {
+    background-color: #784212; /* Brun doré — Napoléon III */
+}
+.btn-second-empire:hover, .btn-second-empire:focus {
+    background-color: #5c330e;
+}
+
+/* ===== SCORE ===== */
+#score-affichage {
+    font-size: 1.1rem;
+    color: #a8b2d8;
+    margin-bottom: 24px;
+    padding: 8px 16px;
+    background-color: #0f3460;
+    border-radius: 20px;    /* Très arrondi = forme "pill" */
+    display: inline-block;  /* Prend seulement la largeur de son contenu */
+}
+
+#score {
+    color: #e94560;
+    font-weight: bold;
+    font-size: 1.3rem;
+}
+
+/* ===== ZONE QUESTION ===== */
+#zone-question {
+    background-color: #0f3460;
+    border-radius: 8px;
+    padding: 24px;
+    margin-bottom: 24px;
+}
+
+/* ===== FORMULAIRE ===== */
+form {
+    display: flex;
+    gap: 8px;              /* Espace entre les éléments flex */
+    justify-content: center;
+    flex-wrap: wrap;       /* Les éléments passent à la ligne si pas assez de place */
+}
+
+input[type="number"] {
+    padding: 12px 16px;
+    font-size: 1rem;
+    border: 2px solid #0f3460;
+    border-radius: 8px;
+    background-color: #1a1a2e;
+    color: #eaeaea;
+    width: 180px;
+    text-align: center;
+    /* :focus (géré via outline ci-dessous) s'active quand l'élément est sélectionné */
+    outline: none;         /* Supprime le contour bleu par défaut */
+    transition: border-color 0.2s ease;
+}
+
+/* On simule le :focus avec CSS directement */
+input[type="number"]:focus {
+    border-color: #e94560;
+}
+
+/* Masque les flèches haut/bas sur les champs number (selon les navigateurs) */
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+}
+
+/* ===== ZONE FEEDBACK (résultat de la réponse) ===== */
+#zone-feedback {
+    margin-top: 20px;
+    min-height: 60px; /* Réserve de la place pour éviter les sauts de mise en page */
+    font-size: 1.1rem;
+    font-weight: bold;
+    border-radius: 8px;
+    padding: 12px;
+    /* transition sur opacity pour un effet fondu */
+    transition: opacity 0.3s ease;
+}
+
+/* Classe ajoutée dynamiquement par JS pour une bonne réponse */
+.feedback-correct {
+    background-color: rgba(46, 213, 115, 0.15);
+    color: #2ed573;
+    border: 1px solid #2ed573;
+}
+
+/* Classe ajoutée dynamiquement par JS pour une mauvaise réponse */
+.feedback-incorrect {
+    background-color: rgba(233, 69, 96, 0.15);
+    color: #a8b2d8;
+    border: 1px solid #e94560;
+}
+
+.annee-correcte {
+    font-size: 1.6rem;
+    font-weight: bold;
+    display: block;
+    margin-bottom: 6px;
+    color: #f0c040; /* mauvaise réponse : doré */
+}
+
+.annee-correcte--ok {
+    color: #2ed573; /* bonne réponse : vert */
+}
+
+.trivia-texte {
+    font-size: 0.95rem;
+    font-weight: normal;
+    color: #c8d0e8;
+}

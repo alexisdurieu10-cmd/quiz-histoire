@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<!-- DOCTYPE indique au navigateur que ce fichier est du HTML5 (la version moderne) -->
+<html lang="fr">
+<!-- La balise <html> est la racine du document. lang="fr" indique la langue pour les outils d'accessibilité -->
+
+<head>
+    <!-- <head> contient des informations sur la page, invisibles pour l'utilisateur -->
+    <meta charset="UTF-8">
+    <!-- charset="UTF-8" permet d'afficher les caractères spéciaux comme é, à, ç -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- viewport permet que la page s'adapte aux écrans mobiles -->
+    <title>Quiz Histoire</title>
+    <!-- <title> définit le texte affiché dans l'onglet du navigateur -->
+    <link rel="stylesheet" href="style.css">
+    <!-- On relie notre feuille de style CSS à ce fichier HTML -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.min.js"></script>
+</head>
+
+<body>
+    <!-- <body> contient tout ce qui est visible à l'écran -->
+
+    <!-- ===== ÉCRAN D'ACCUEIL ===== -->
+    <!-- id="ecran-accueil" permet à JavaScript de retrouver cet élément précis -->
+    <div id="ecran-accueil">
+        <h1>Quiz Histoire</h1>
+        <p>Trouvez l'année de chaque événement.<br>
+           La partie s'arrête à <strong>10 points</strong>.</p>
+        <!-- Le bouton déclenche la fonction "demarrerPartie()" définie dans script.js -->
+        <!-- onclick="..." est un "gestionnaire d'événement" : au clic, on exécute du JS -->
+        <button id="btn-demarrer" onclick="demarrerPartie()">Toutes les époques</button>
+        <small id="compte-total"></small>
+
+        <div id="grille-epoques">
+            <div class="cellule-epoque" id="cellule-prehistoire">
+                <canvas class="icone-3d" id="canvas-prehistoire"></canvas>
+                <button class="btn-prehistoire" onclick="demarrerPartie('prehistoire')">Préhistoire</button>
+                <small id="compte-prehistoire"></small>
+            </div>
+            <div class="cellule-epoque" id="cellule-antiquite">
+                <canvas class="icone-3d" id="canvas-antiquite"></canvas>
+                <button class="btn-antiquite" onclick="demarrerPartie('antiquite')">Antiquité</button>
+                <small id="compte-antiquite"></small>
+            </div>
+            <div class="cellule-epoque" id="cellule-moyen-age">
+                <canvas class="icone-3d" id="canvas-moyen-age"></canvas>
+                <button class="btn-moyen-age" onclick="demarrerPartie('moyen-age')">Moyen-Âge</button>
+                <small id="compte-moyen-age"></small>
+            </div>
+            <div class="cellule-epoque" id="cellule-renaissance">
+                <canvas class="icone-3d" id="canvas-renaissance"></canvas>
+                <button class="btn-renaissance" onclick="demarrerPartie('renaissance')">Renaissance</button>
+                <small id="compte-renaissance"></small>
+            </div>
+            <div class="cellule-epoque" id="cellule-classique">
+                <canvas class="icone-3d" id="canvas-classique"></canvas>
+                <button class="btn-classique" onclick="demarrerPartie('classique')">Époque classique</button>
+                <small id="compte-classique"></small>
+            </div>
+            <div class="cellule-epoque" id="cellule-premier-empire">
+                <canvas class="icone-3d" id="canvas-premier-empire"></canvas>
+                <button class="btn-premier-empire" onclick="demarrerPartie('premier-empire')">Premier Empire</button>
+                <small id="compte-premier-empire"></small>
+            </div>
+            <div class="cellule-epoque" id="cellule-second-empire">
+                <canvas class="icone-3d" id="canvas-second-empire"></canvas>
+                <button class="btn-second-empire" onclick="demarrerPartie('second-empire')">Second Empire</button>
+                <small id="compte-second-empire"></small>
+            </div>
+        </div>
+    </div>
+
+    <!-- ===== ÉCRAN DE JEU ===== -->
+    <!-- class="cache" est défini dans le CSS pour masquer l'élément au départ -->
+    <div id="ecran-jeu" class="cache">
+
+        <!-- Affichage du score en temps réel -->
+        <div id="score-affichage">Score : <span id="score">0</span> / 10</div>
+
+        <!-- Zone où apparaît le nom de l'événement historique -->
+        <div id="zone-question">
+            <h2 id="evenement">Chargement...</h2>
+            <p>En quelle année cet événement s'est-il produit ?</p>
+        </div>
+
+        <!-- Formulaire de saisie de la réponse -->
+        <!-- onsubmit="..." intercepte la soumission du formulaire (touche Entrée ou bouton) -->
+        <!-- "return false" empêche le rechargement de la page (comportement par défaut des formulaires) -->
+        <form onsubmit="verifierReponse(); return false;">
+            <input
+                type="number"
+                id="champ-annee"
+                placeholder="Année"
+                min="-999999"
+                max="2100"
+            >
+            <!-- type="number" n'accepte que des chiffres -->
+            <!-- placeholder est le texte grisé affiché quand le champ est vide -->
+            <button type="submit">Valider</button>
+        </form>
+
+        <!-- Bouton pour passer à la question suivante -->
+        <button id ="btn-suivant" onclick="nextQuestion()">Question suivante</button>
+
+        <!-- Zone où s'affiche le résultat (bonne/mauvaise réponse) -->
+        <div id="zone-feedback"></div>
+
+        <!-- Bouton pour quitter la partie en cours -->
+        <button id="btn-terminer" onclick="terminerPartie()">Terminer la partie</button>
+
+    </div>
+
+    <!-- On charge le fichier JavaScript EN FIN DE BODY -->
+    <!-- Important : le HTML doit être chargé avant le JS pour que le JS puisse trouver les éléments -->
+    <script src="data.js"></script>    <!-- Les données : tableau QUESTIONS -->
+    <script src="script.js"></script>   <!-- La logique du jeu -->
+
+</body>
+</html>
