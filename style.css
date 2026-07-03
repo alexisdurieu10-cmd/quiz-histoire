@@ -362,23 +362,41 @@ form {
     flex-wrap: wrap;       /* Les éléments passent à la ligne si pas assez de place */
 }
 
-input[type="number"] {
+input[type="text"] {
     padding: 12px 16px;
     font-size: 1rem;
     border: 2px solid #0f3460;
     border-radius: 8px;
     background-color: #1a1a2e;
     color: #eaeaea;
-    width: 180px;
+    width: 140px;
     text-align: center;
-    /* :focus (géré via outline ci-dessous) s'active quand l'élément est sélectionné */
-    outline: none;         /* Supprime le contour bleu par défaut */
+    outline: none;
     transition: border-color 0.2s ease;
 }
 
-/* On simule le :focus avec CSS directement */
-input[type="number"]:focus {
+input[type="text"]:focus {
     border-color: #e94560;
+}
+
+#btn-signe {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    background-color: #0f3460;
+    color: #a8b2d8;
+    border: 2px solid #0f3460;
+    padding: 12px 14px;
+    font-size: 1.1rem;
+    margin-top: 0;
+}
+
+#btn-signe:hover, #btn-signe:focus {
+    background-color: #1a4a80;
+    color: #ffffff;
+    animation: none;
+    transform: none;
+    box-shadow: none;
 }
 
 

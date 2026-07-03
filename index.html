@@ -87,13 +87,13 @@
         <!-- onsubmit="..." intercepte la soumission du formulaire (touche Entrée ou bouton) -->
         <!-- "return false" empêche le rechargement de la page (comportement par défaut des formulaires) -->
         <form onsubmit="verifierReponse(); return false;">
+            <button type="button" id="btn-signe" onclick="basculerSigne()">±</button>
             <input
                 type="text"
-                inputmode="text"
+                inputmode="numeric"
                 id="champ-annee"
                 placeholder="Année"
             >
-            <!-- type="text" pour permettre le tiret (-) sur mobile -->
             <button type="submit" id="btn-valider">Valider</button>
         </form>
 

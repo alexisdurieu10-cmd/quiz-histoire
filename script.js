@@ -34,6 +34,7 @@ const affichageScore = document.getElementById("score");
 const zoneFeedback   = document.getElementById("zone-feedback");
 const btnSuivant     = document.getElementById("btn-suivant");
 const btnValider     = document.getElementById("btn-valider");
+const btnSigne       = document.getElementById("btn-signe");
 const btnDemarrer    = document.getElementById("btn-demarrer");
 
 // À ce stade, JavaScript a "lu" la page HTML et a une référence directe
@@ -121,6 +122,7 @@ function afficherQuestion() {
     champAnnee.value = "";
     champAnnee.disabled = false;
     btnValider.disabled = false;
+    btnSigne.disabled   = false;
 
     // On replace le curseur dans le champ pour que le joueur puisse taper directement.
     champAnnee.focus();
@@ -130,6 +132,12 @@ function afficherQuestion() {
     zoneFeedback.className = "";
 }
 
+
+function basculerSigne() {
+    const v = champAnnee.value.trim();
+    champAnnee.value = v.startsWith("-") ? v.slice(1) : "-" + v;
+    champAnnee.focus();
+}
 
 // ===== 5. FONCTION : VÉRIFIER LA RÉPONSE =====
 // Appelée quand le joueur soumet le formulaire (bouton ou touche Entrée).
@@ -180,6 +188,7 @@ function verifierReponse() {
 
     champAnnee.disabled = true;
     btnValider.disabled = true;
+    btnSigne.disabled   = true;
 
     setTimeout(() => {
         btnSuivant.focus(); // Place le focus sur le bouton "Question suivante" pour que le joueur puisse appuyer sur Entrée.
