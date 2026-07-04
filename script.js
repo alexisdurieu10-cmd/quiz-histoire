@@ -10,15 +10,9 @@
 // "let" permet de réassigner la variable plus tard (contrairement à const).
 
 let score = 0;
-// Le score actuel du joueur. Commence à 0 et peut augmenter.
-
+let vies = 3;
 let indexQuestion = 0;
-// L'index de la question en cours dans le tableau QUESTIONS.
-// Index 0 = première question, index 1 = deuxième, etc.
-
 let questionsDisponibles = [];
-// La liste des questions mélangées que le joueur va traverser.
-// On la remplit au démarrage dans demarrerPartie().
 
 
 // ===== 2. LES RÉFÉRENCES AUX ÉLÉMENTS HTML =====
@@ -31,6 +25,7 @@ const ecranJeu       = document.getElementById("ecran-jeu");
 const champAnnee     = document.getElementById("champ-annee");
 const texteEvenement = document.getElementById("evenement");
 const affichageScore = document.getElementById("score");
+const affichageVies  = document.getElementById("vies-affichage");
 const zoneFeedback   = document.getElementById("zone-feedback");
 const btnSuivant     = document.getElementById("btn-suivant");
 const btnValider     = document.getElementById("btn-valider");
@@ -83,11 +78,13 @@ function demarrerPartie(epoque) {
     // --- Mise à jour de l'interface ---
     // On remet le score affiché à 0.
     // .textContent permet de modifier le texte visible d'un élément HTML.
+    score = 0;
+    vies  = 3;
     affichageScore.textContent = "0";
+    afficherVies();
 
-    // On vide la zone de feedback (résultat de la réponse précédente).
     zoneFeedback.textContent = "";
-    zoneFeedback.className = ""; // Supprime toutes les classes CSS de cet élément
+    zoneFeedback.className = "";
 
     // --- Changement d'écran ---
     // Pour passer de l'écran d'accueil à l'écran de jeu, on joue sur les classes CSS.
@@ -139,6 +136,10 @@ function basculerSigne() {
     champAnnee.focus();
 }
 
+function afficherVies() {
+    affichageVies.innerHTML = "♥".repeat(vies) + "♡".repeat(3 - vies);
+}
+
 // ===== 5. FONCTION : VÉRIFIER LA RÉPONSE =====
 // Appelée quand le joueur soumet le formulaire (bouton ou touche Entrée).
 
@@ -181,9 +182,12 @@ function verifierReponse() {
         // --- Mauvaise réponse ---
         // On utilise les "template literals" (entre backticks `) pour insérer
         // des variables dans une chaîne de caractères avec ${variable}.
+        vies--;
+        afficherVies();
         zoneFeedback.innerHTML = `<span class="annee-correcte">${bonneReponse}</span><br><span class="trivia-texte">${questionsDisponibles[indexQuestion].trivia}</span>`;
         zoneFeedback.className = "feedback-incorrect";
         sonMauvaiseReponse();
+
     }
 
     champAnnee.disabled = true;
@@ -210,8 +214,9 @@ function nextQuestion() {
     //               (si on a 3 questions : index 0, 1, 2 → longueur = 3)
     const derniereQuestion = (indexQuestion + 1 >= questionsDisponibles.length);
     const dixPointsAtteints = (score >= 10);
+    const plusDeVies        = (vies === 0);
 
-    if (dixPointsAtteints || derniereQuestion) {
+    if (dixPointsAtteints || derniereQuestion || plusDeVies) {
         // "||" est le OU logique : vrai si au moins l'une des conditions est vraie.
         terminerPartie();
 

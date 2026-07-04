@@ -74,8 +74,11 @@
     <!-- class="cache" est défini dans le CSS pour masquer l'élément au départ -->
     <div id="ecran-jeu" class="cache">
 
-        <!-- Affichage du score en temps réel -->
-        <div id="score-affichage">Score : <span id="score">0</span> / 10</div>
+        <!-- Affichage du score et des vies -->
+        <div id="hud">
+            <div id="score-affichage">Score : <span id="score">0</span> / 10</div>
+            <div id="vies-affichage"></div>
+        </div>
 
         <!-- Zone où apparaît le nom de l'événement historique -->
         <div id="zone-question">

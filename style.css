@@ -38,14 +38,29 @@ body {
     box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
 }
 
+#ecran-accueil {
+    max-width: 800px;
+}
+
 #grille-epoques {
     display: grid;
-    grid-template-columns: 1fr 1fr;
-    grid-template-rows: repeat(4, auto);
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(2, auto);
     grid-auto-flow: column;
-    column-gap: 60px;
+    column-gap: 24px;
     row-gap: 8px;
     margin-top: 12px;
+}
+
+@media (max-width: 640px) {
+    #ecran-accueil {
+        max-width: 560px;
+    }
+    #grille-epoques {
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: repeat(4, auto);
+        column-gap: 40px;
+    }
 }
 
 .cellule-epoque {
@@ -329,15 +344,29 @@ small {
     background-color: #5c330e;
 }
 
-/* ===== SCORE ===== */
+/* ===== HUD (score + vies) ===== */
+#hud {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 16px;
+    margin-bottom: 24px;
+    flex-wrap: wrap;
+}
+
 #score-affichage {
     font-size: 1.1rem;
     color: #a8b2d8;
-    margin-bottom: 24px;
     padding: 8px 16px;
     background-color: #0f3460;
-    border-radius: 20px;    /* Très arrondi = forme "pill" */
-    display: inline-block;  /* Prend seulement la largeur de son contenu */
+    border-radius: 20px;
+    display: inline-block;
+}
+
+#vies-affichage {
+    font-size: 1.4rem;
+    letter-spacing: 4px;
+    color: #e94560;
 }
 
 #score {
