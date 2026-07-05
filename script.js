@@ -21,6 +21,7 @@ let questionsDisponibles = [];
 // Ces constantes ne changent pas : les éléments HTML restent les mêmes tout au long du jeu.
 
 const ecranAccueil   = document.getElementById("ecran-accueil");
+const ecranArt       = document.getElementById("ecran-art");
 const ecranJeu       = document.getElementById("ecran-jeu");
 const champAnnee     = document.getElementById("champ-annee");
 const texteEvenement = document.getElementById("evenement");
@@ -35,6 +36,15 @@ const btnDemarrer    = document.getElementById("btn-demarrer");
 // À ce stade, JavaScript a "lu" la page HTML et a une référence directe
 // vers chaque élément. On peut maintenant modifier leur contenu ou leur style.
 
+
+function getEpoqueArt(annee) {
+    if (annee <= -2000) return "art-prehistoire";
+    if (annee <= 476)   return "art-antiquite";
+    if (annee <= 1492)  return "art-moyen-age";
+    if (annee <= 1620)  return "art-renaissance";
+    if (annee <= 1715)  return "art-classique";
+    return "art-lumieres";
+}
 
 function getEpoque(annee) {
     // Retourne l'époque d'une question à partir de son année.
@@ -56,6 +66,18 @@ function getEpoque(annee) {
 // Ici, la fonction est appelée depuis le onclick="" dans le HTML.
 // "epoque" est un paramètre optionnel : si absent, on joue avec toutes les questions.
 
+function ouvrirMenuArt() {
+    ecranAccueil.classList.add("cache");
+    ecranArt.classList.remove("cache");
+    setTimeout(() => document.getElementById("btn-tout-art").focus(), 50);
+}
+
+function retourAccueil() {
+    ecranArt.classList.add("cache");
+    ecranAccueil.classList.remove("cache");
+    setTimeout(() => btnDemarrer.focus(), 50);
+}
+
 function demarrerPartie(epoque) {
 
     // --- Réinitialisation de l'état ---
@@ -67,11 +89,18 @@ function demarrerPartie(epoque) {
     // On copie le tableau QUESTIONS dans questionsDisponibles.
     // Si une époque est passée en paramètre, on filtre d'abord les questions.
     // .filter() parcourt le tableau et ne garde que les éléments pour lesquels la fonction retourne true.
-    if (epoque) {
-        questionsDisponibles = QUESTIONS.filter(q => getEpoque(q.annee) === epoque);
+    if (epoque === 'art') {
+        questionsDisponibles = QUESTIONS.filter(q => q.art === true);
+    } else if (epoque && epoque.startsWith('art-')) {
+        questionsDisponibles = QUESTIONS.filter(q => q.art && getEpoqueArt(q.annee) === epoque);
+    } else if (epoque) {
+        questionsDisponibles = QUESTIONS.filter(q => !q.art && getEpoque(q.annee) === epoque);
     } else {
-        questionsDisponibles = [...QUESTIONS];
+        questionsDisponibles = QUESTIONS.filter(q => !q.art);
     }
+
+    ecranAccueil.classList.add("cache");
+    ecranArt.classList.add("cache");
 
     // On mélange les questions pour varier l'ordre à chaque partie.
     melangerTableau(questionsDisponibles);
@@ -375,6 +404,11 @@ function sonRevolution() {
     [0, 0.06, 0.12, 0.18, 0.24, 0.3].forEach(t => note(110, t, 0.07, 'triangle', 0.28));
 }
 
+function sonArt() {
+    // Arpège doux — harpe
+    [[523, 0], [659, 0.1], [784, 0.2], [1047, 0.32], [1319, 0.44]].forEach(([f, t]) => note(f, t, 0.5, 'sine', 0.12));
+}
+
 function sonToutesEpoques() {
     // Carillon — trois harmoniques
     [[1047, 0], [1319, 0.09], [1568, 0.18]].forEach(([f, t]) => note(f, t, 0.4, 'sine', 0.11));
@@ -423,16 +457,26 @@ function melangerTableau(tableau) {
 
 btnDemarrer.focus();
 
-// Affiche le nombre de questions sous chaque bouton du menu.
-document.getElementById("compte-total").textContent        = `${QUESTIONS.length} questions`;
-document.getElementById("compte-prehistoire").textContent  = `${QUESTIONS.filter(q => getEpoque(q.annee) === "prehistoire").length} questions`;
-document.getElementById("compte-antiquite").textContent    = `${QUESTIONS.filter(q => getEpoque(q.annee) === "antiquite").length} questions`;
-document.getElementById("compte-moyen-age").textContent  = `${QUESTIONS.filter(q => getEpoque(q.annee) === "moyen-age").length} questions`;
-document.getElementById("compte-renaissance").textContent = `${QUESTIONS.filter(q => getEpoque(q.annee) === "renaissance").length} questions`;
-document.getElementById("compte-classique").textContent        = `${QUESTIONS.filter(q => getEpoque(q.annee) === "classique").length} questions`;
-document.getElementById("compte-revolution").textContent       = `${QUESTIONS.filter(q => getEpoque(q.annee) === "revolution").length} questions`;
-document.getElementById("compte-premier-empire").textContent   = `${QUESTIONS.filter(q => getEpoque(q.annee) === "premier-empire").length} questions`;
-document.getElementById("compte-second-empire").textContent    = `${QUESTIONS.filter(q => getEpoque(q.annee) === "second-empire").length} questions`;
+// Affiche le nombre de questions sous chaque bouton du menu histoire.
+const qHist = q => !q.art;
+document.getElementById("compte-total").textContent            = `${QUESTIONS.filter(qHist).length} questions`;
+document.getElementById("compte-prehistoire").textContent      = `${QUESTIONS.filter(q => qHist(q) && getEpoque(q.annee) === "prehistoire").length} questions`;
+document.getElementById("compte-antiquite").textContent        = `${QUESTIONS.filter(q => qHist(q) && getEpoque(q.annee) === "antiquite").length} questions`;
+document.getElementById("compte-moyen-age").textContent        = `${QUESTIONS.filter(q => qHist(q) && getEpoque(q.annee) === "moyen-age").length} questions`;
+document.getElementById("compte-renaissance").textContent      = `${QUESTIONS.filter(q => qHist(q) && getEpoque(q.annee) === "renaissance").length} questions`;
+document.getElementById("compte-classique").textContent        = `${QUESTIONS.filter(q => qHist(q) && getEpoque(q.annee) === "classique").length} questions`;
+document.getElementById("compte-revolution").textContent       = `${QUESTIONS.filter(q => qHist(q) && getEpoque(q.annee) === "revolution").length} questions`;
+document.getElementById("compte-premier-empire").textContent   = `${QUESTIONS.filter(q => qHist(q) && getEpoque(q.annee) === "premier-empire").length} questions`;
+document.getElementById("compte-second-empire").textContent    = `${QUESTIONS.filter(q => qHist(q) && getEpoque(q.annee) === "second-empire").length} questions`;
+
+// Affiche le nombre de questions sous chaque bouton du menu art.
+const qArt = q => q.art === true;
+document.getElementById("compte-art-total").textContent        = `${QUESTIONS.filter(qArt).length} questions`;
+document.getElementById("compte-art-antiquite").textContent    = `${QUESTIONS.filter(q => qArt(q) && getEpoqueArt(q.annee) === "art-antiquite").length} questions`;
+document.getElementById("compte-art-moyen-age").textContent    = `${QUESTIONS.filter(q => qArt(q) && getEpoqueArt(q.annee) === "art-moyen-age").length} questions`;
+document.getElementById("compte-art-renaissance").textContent  = `${QUESTIONS.filter(q => qArt(q) && getEpoqueArt(q.annee) === "art-renaissance").length} questions`;
+document.getElementById("compte-art-classique").textContent    = `${QUESTIONS.filter(q => qArt(q) && getEpoqueArt(q.annee) === "art-classique").length} questions`;
+document.getElementById("compte-art-lumieres").textContent     = `${QUESTIONS.filter(q => qArt(q) && getEpoqueArt(q.annee) === "art-lumieres").length} questions`;
 
 
 // ===== ICÔNES 3D (Three.js) =====
@@ -668,6 +712,29 @@ creerScene3D("canvas-antiquite",      creerTemple,     null, "cellule-antiquite"
 creerScene3D("canvas-moyen-age",      creerEpee,       null, "cellule-moyen-age");
 creerScene3D("canvas-renaissance",    creerArmillaire, null, "cellule-renaissance");
 creerScene3D("canvas-classique",      creerCouronne,   null, "cellule-classique");
+function creerPinceau() {
+    const g = new THREE.Group();
+    const mBois  = mat(0xa0522d);
+    const mMetal = mat(0xc8c8c8, 150);
+    const mPoil  = mat(0x2d1205);
+
+    const manche = new THREE.Mesh(new THREE.CylinderGeometry(0.08, 0.11, 1.4, 8), mBois);
+    manche.position.y = 0.1;
+    g.add(manche);
+
+    const virole = new THREE.Mesh(new THREE.CylinderGeometry(0.12, 0.12, 0.16, 8), mMetal);
+    virole.position.y = -0.63;
+    g.add(virole);
+
+    const soies = new THREE.Mesh(new THREE.ConeGeometry(0.09, 0.48, 8), mPoil);
+    soies.rotation.z = Math.PI;
+    soies.position.y = -0.99;
+    g.add(soies);
+
+    g.scale.setScalar(0.9);
+    return g;
+}
+
 creerScene3D("canvas-revolution",     creerGuillotine, null, "cellule-revolution");
 creerScene3D("canvas-premier-empire", creerLivre,      null, "cellule-premier-empire");
 creerScene3D("canvas-second-empire",  creerRails,      null, "cellule-second-empire");

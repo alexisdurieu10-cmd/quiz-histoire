@@ -22,14 +22,11 @@
         <i id="icone-mute" class="fa-solid fa-volume-high"></i>
     </button>
 
-    <!-- ===== ÉCRAN D'ACCUEIL ===== -->
-    <!-- id="ecran-accueil" permet à JavaScript de retrouver cet élément précis -->
+    <!-- ===== ÉCRAN D'ACCUEIL HISTOIRE ===== -->
     <div id="ecran-accueil">
         <h1>Quiz Histoire</h1>
         <p>Trouvez l'année de chaque événement.<br>
            La partie s'arrête à <strong>10 points</strong>.</p>
-        <!-- Le bouton déclenche la fonction "demarrerPartie()" définie dans script.js -->
-        <!-- onclick="..." est un "gestionnaire d'événement" : au clic, on exécute du JS -->
         <button id="btn-demarrer" onclick="demarrerPartie()">Toutes les époques</button>
         <small id="compte-total"></small>
 
@@ -75,27 +72,57 @@
                 <small id="compte-second-empire"></small>
             </div>
         </div>
+
+        <button id="btn-mode-art" onclick="ouvrirMenuArt()">Art &amp; Culture</button>
+    </div>
+
+    <!-- ===== ÉCRAN ART & CULTURE ===== -->
+    <div id="ecran-art" class="cache">
+        <h1>Art &amp; Culture</h1>
+        <p>Trouvez l'année de chaque œuvre ou événement artistique.<br>
+           La partie s'arrête à <strong>10 points</strong>.</p>
+        <button id="btn-tout-art" onclick="demarrerPartie('art')">Tout l'art</button>
+        <small id="compte-art-total"></small>
+
+        <div id="grille-art">
+            <div class="cellule-art">
+                <button class="btn-art-antiquite" onclick="demarrerPartie('art-antiquite')">Antiquité</button>
+                <small id="compte-art-antiquite"></small>
+            </div>
+            <div class="cellule-art">
+                <button class="btn-art-moyen-age" onclick="demarrerPartie('art-moyen-age')">Moyen-Âge</button>
+                <small id="compte-art-moyen-age"></small>
+            </div>
+            <div class="cellule-art">
+                <button class="btn-art-renaissance" onclick="demarrerPartie('art-renaissance')">Renaissance</button>
+                <small id="compte-art-renaissance"></small>
+            </div>
+            <div class="cellule-art">
+                <button class="btn-art-classique" onclick="demarrerPartie('art-classique')">Époque classique</button>
+                <small id="compte-art-classique"></small>
+            </div>
+            <div class="cellule-art">
+                <button class="btn-art-lumieres" onclick="demarrerPartie('art-lumieres')">Lumières &amp; Romantisme</button>
+                <small id="compte-art-lumieres"></small>
+            </div>
+        </div>
+
+        <button id="btn-retour-art" onclick="retourAccueil()">← Retour</button>
     </div>
 
     <!-- ===== ÉCRAN DE JEU ===== -->
-    <!-- class="cache" est défini dans le CSS pour masquer l'élément au départ -->
     <div id="ecran-jeu" class="cache">
 
-        <!-- Affichage du score et des vies -->
         <div id="hud">
             <div id="score-affichage">Score : <span id="score">0</span> / 10</div>
             <div id="vies-affichage"></div>
         </div>
 
-        <!-- Zone où apparaît le nom de l'événement historique -->
         <div id="zone-question">
             <h2 id="evenement">Chargement...</h2>
             <p>En quelle année cet événement s'est-il produit ?</p>
         </div>
 
-        <!-- Formulaire de saisie de la réponse -->
-        <!-- onsubmit="..." intercepte la soumission du formulaire (touche Entrée ou bouton) -->
-        <!-- "return false" empêche le rechargement de la page (comportement par défaut des formulaires) -->
         <form onsubmit="verifierReponse(); return false;">
             <button type="button" id="btn-signe" onclick="basculerSigne()">±</button>
             <input
@@ -107,21 +134,16 @@
             <button type="submit" id="btn-valider">Valider</button>
         </form>
 
-        <!-- Bouton pour passer à la question suivante -->
         <button id ="btn-suivant" onclick="nextQuestion()">Question suivante</button>
 
-        <!-- Zone où s'affiche le résultat (bonne/mauvaise réponse) -->
         <div id="zone-feedback"></div>
 
-        <!-- Bouton pour quitter la partie en cours -->
         <button id="btn-terminer" onclick="terminerPartie()">Terminer la partie</button>
 
     </div>
 
-    <!-- On charge le fichier JavaScript EN FIN DE BODY -->
-    <!-- Important : le HTML doit être chargé avant le JS pour que le JS puisse trouver les éléments -->
-    <script src="data.js"></script>    <!-- Les données : tableau QUESTIONS -->
-    <script src="script.js"></script>   <!-- La logique du jeu -->
+    <script src="data.js"></script>
+    <script src="script.js"></script>
 
 </body>
 </html>

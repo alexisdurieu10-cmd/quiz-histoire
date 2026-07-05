@@ -82,6 +82,78 @@ body {
     margin-top: 12px;
 }
 
+#btn-mode-art {
+    margin-top: 20px;
+    background-color: #00838f;
+}
+#btn-mode-art:hover, #btn-mode-art:focus {
+    background-color: #006064;
+}
+
+/* ===== ÉCRAN ART ===== */
+#ecran-art {
+    background-color: #16213e;
+    border-radius: 12px;
+    padding: 24px;
+    max-width: 560px;
+    width: 90%;
+    text-align: center;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+}
+
+#grille-art {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 8px;
+    margin-top: 12px;
+}
+
+.cellule-art {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.cellule-art button {
+    width: 100%;
+    padding: 14px 8px;
+    font-size: 1rem;
+}
+
+.btn-art-antiquite  { background-color: #c8922a; }
+.btn-art-antiquite:hover,  .btn-art-antiquite:focus  { background-color: #a87520; }
+
+.btn-art-moyen-age  { background-color: #5a3e8a; }
+.btn-art-moyen-age:hover,  .btn-art-moyen-age:focus  { background-color: #432d6b; }
+
+.btn-art-renaissance { background-color: #2a7f5a; }
+.btn-art-renaissance:hover, .btn-art-renaissance:focus { background-color: #1e5f42; }
+
+.btn-art-classique  { background-color: #1a5276; }
+.btn-art-classique:hover,  .btn-art-classique:focus  { background-color: #154360; }
+
+.btn-art-lumieres   { background-color: #6d4c41; }
+.btn-art-lumieres:hover,   .btn-art-lumieres:focus   { background-color: #4e342e; }
+
+#btn-retour-art {
+    background-color: transparent;
+    color: #a8b2d8;
+    border: 1px solid #a8b2d8;
+    font-size: 0.85rem;
+    padding: 8px 20px;
+    margin-top: 16px;
+    opacity: 0.6;
+}
+#btn-retour-art:hover, #btn-retour-art:focus {
+    background-color: transparent;
+    color: #e94560;
+    border-color: #e94560;
+    opacity: 1;
+    animation: none;
+    transform: none;
+    box-shadow: none;
+}
+
 @media (max-width: 640px) {
     #ecran-accueil {
         max-width: 560px;
@@ -365,6 +437,13 @@ small {
 }
 .btn-revolution:hover, .btn-revolution:focus {
     background-color: #6e1f18;
+}
+
+.btn-art {
+    background-color: #00838f; /* Teal — pinceaux et palettes */
+}
+.btn-art:hover, .btn-art:focus {
+    background-color: #006064;
 }
 
 .btn-premier-empire {

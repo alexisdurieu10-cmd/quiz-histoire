@@ -1174,6 +1174,158 @@ const QUESTIONS = [
         annee: 1793,
         trivia: "Cette loi permet d'arrêter toute personne suspecte de ne pas être assez révolutionnaire : nobles, prêtres réfractaires, parents d'émigrés. Elle alimente la Grande Terreur et aboutit à l'emprisonnement de 300 000 personnes."
     },
+    // ===== ART & CULTURE =====
+    {
+        evenement: "Construction du Parthénon à Athènes",
+        annee: -447,
+        art: true,
+        trivia: "Le Parthénon est construit entre -447 et -432 sur l'Acropole d'Athènes sous la direction de Phidias, sur ordre de Périclès. Ce temple dédié à Athéna est considéré comme le sommet de l'architecture grecque classique et l'un des monuments les plus influents de l'histoire de l'art."
+    },
+    {
+        evenement: "Virgile publie L'Énéide",
+        annee: -19,
+        art: true,
+        trivia: "L'Énéide, épopée de Virgile publiée en -19, raconte les aventures d'Énée, héros troyen ancêtre des Romains. Chef-d'œuvre de la littérature latine, elle a servi de modèle à la poésie épique occidentale pendant deux millénaires, de Dante à Milton."
+    },
+    {
+        evenement: "Construction du Colossée de Rome",
+        annee: 72,
+        art: true,
+        trivia: "Le Colossée, dont la construction débute en 72 sous Vespasien, peut accueillir 50 000 spectateurs. Ce chef-d'œuvre d'ingénierie romaine accueillit gladiateurs, chasses aux fauves et reconstitutions navales. Il reste le plus grand amphithéâtre jamais construit."
+    },
+    {
+        evenement: "Construction de la cathédrale Sainte-Sophie de Constantinople",
+        annee: 537,
+        art: true,
+        trivia: "Sainte-Sophie, achevée en 537 sous Justinien, reste pendant un millénaire la plus grande église du monde chrétien. Sa coupole de 31 mètres de diamètre, semblant flotter dans les airs grâce à des fenêtres à la base, influence toute l'architecture byzantine et ottomane."
+    },
+    {
+        evenement: "Début de la construction de Notre-Dame de Paris",
+        annee: 1163,
+        art: true,
+        trivia: "La cathédrale Notre-Dame de Paris, dont la construction débute en 1163 sous l'évêque Maurice de Sully, est un chef-d'œuvre de l'architecture gothique. Ses arcs-boutants, invention majeure de l'époque, permettent d'élever les murs et d'y percer d'immenses vitraux."
+    },
+    {
+        evenement: "Giotto peint la chapelle des Scrovegni",
+        annee: 1305,
+        art: true,
+        trivia: "Les fresques de Giotto à Padoue (1305) représentent une révolution artistique : pour la première fois, les personnages ont un volume, des émotions, une présence humaine. Giotto rompt avec l'art byzantin figé et ouvre la voie à la Renaissance."
+    },
+    {
+        evenement: "Dante commence La Divine Comédie",
+        annee: 1308,
+        art: true,
+        trivia: "La Divine Comédie, composée par Dante entre 1308 et 1320, décrit un voyage à travers l'Enfer, le Purgatoire et le Paradis. Écrite en toscan populaire plutôt qu'en latin, elle pose les bases de la langue italienne et reste l'un des plus grands poèmes jamais écrits."
+    },
+    {
+        evenement: "Van Eyck peint Les Époux Arnolfini",
+        annee: 1434,
+        art: true,
+        trivia: "Les Époux Arnolfini (1434) est l'un des premiers grands portraits de l'histoire de la peinture. Van Eyck y maîtrise la perspective et la représentation de la lumière à un niveau stupéfiant pour l'époque. Le miroir convexe au fond du tableau reflète deux autres personnages, dont peut-être l'artiste lui-même."
+    },
+    {
+        evenement: "Brunelleschi achève la coupole du Dôme de Florence",
+        annee: 1436,
+        art: true,
+        trivia: "La coupole de Brunelleschi, achevée en 1436, est un exploit technique sans précédent : 42 mètres de diamètre, sans échafaudage traditionnel, construite grâce à un système de spirales en herringbone que Brunelleschi garda secret. Elle reste la plus grande coupole en maçonnerie jamais construite."
+    },
+    {
+        evenement: "Botticelli peint La Naissance de Vénus",
+        annee: 1485,
+        art: true,
+        trivia: "La Naissance de Vénus de Botticelli (vers 1485) est l'une des premières grandes représentations de la nudité féminine depuis l'Antiquité. Commandée par les Médicis, elle illustre l'idéal néoplatonicien de beauté divine. Le visage de Vénus est inspiré de Simonetta Vespucci, amour platonique de Botticelli."
+    },
+    {
+        evenement: "Michel-Ange sculpte La Pietà",
+        annee: 1499,
+        art: true,
+        trivia: "Michel-Ange avait 24 ans quand il acheva La Pietà (1499), aujourd'hui conservée au Vatican. Scandalisés qu'un si jeune homme puisse créer une telle œuvre, certains l'attribuèrent à d'autres. Furieux, Michel-Ange cisela son nom sur le baudrier de la Vierge — la seule œuvre qu'il signa jamais."
+    },
+    {
+        evenement: "Léonard de Vinci commence à peindre La Joconde",
+        annee: 1503,
+        art: true,
+        trivia: "Léonard commence La Joconde vers 1503 et ne la considérera jamais terminée, l'emportant jusqu'à sa mort en France. Le mystère de son sourire tient au sfumato, technique de Léonard où les contours sont volontairement flous. La Joconde est aujourd'hui le tableau le plus visité au monde."
+    },
+    {
+        evenement: "Michel-Ange termine le David",
+        annee: 1504,
+        art: true,
+        trivia: "Le David de Michel-Ange, achevé en 1504 après trois ans de travail, représente le héros biblique avant son combat contre Goliath. Taillé dans un bloc de marbre que d'autres sculpteurs avaient abandonné, il mesure 5,17 mètres. Florence en fit immédiatement le symbole de sa résistance aux tyrans."
+    },
+    {
+        evenement: "Michel-Ange commence le plafond de la chapelle Sixtine",
+        annee: 1508,
+        art: true,
+        trivia: "Michel-Ange peint seul le plafond de la Sixtine entre 1508 et 1512, allongé sur un échafaudage, les yeux brûlés par la peinture qui coule. Les 300 figures de 520 m² constituent l'une des œuvres les plus complexes de l'histoire de l'art. Il aurait dit : 'Je ne suis pas peintre.'"
+    },
+    {
+        evenement: "Raphaël peint L'École d'Athènes",
+        annee: 1511,
+        art: true,
+        trivia: "L'École d'Athènes (1509-1511) réunit sous un même portique tous les grands philosophes de l'Antiquité. Platon et Aristote trônent au centre. Raphaël se représente lui-même au bord droit. Il aurait glissé le visage de Michel-Ange dans le personnage d'Héraclite, en hommage à son génie."
+    },
+    {
+        evenement: "Pierre Lescot commence la reconstruction du Louvre",
+        annee: 1546,
+        art: true,
+        trivia: "François Ier confie en 1546 à l'architecte Pierre Lescot la reconstruction du vieux château médiéval du Louvre. Cette aile classique, ornée de sculptures de Jean Goujon, inaugure l'architecture de la Renaissance française. Le palais sera agrandi pendant trois siècles avant de devenir le plus grand musée du monde."
+    },
+    {
+        evenement: "Rembrandt peint La Ronde de Nuit",
+        annee: 1642,
+        art: true,
+        trivia: "La Ronde de Nuit (1642) est la plus grande et la plus célèbre peinture de Rembrandt. En réalité, la scène se déroule probablement en plein jour — le vernis assombri par les siècles lui a donné son surnom. Sa composition dynamique et dramatique révolutionne le portrait de groupe."
+    },
+    {
+        evenement: "Fondation de la Comédie-Française",
+        annee: 1680,
+        art: true,
+        trivia: "Louis XIV fonde la Comédie-Française en 1680 en fusionnant deux troupes parisiennes, dont celle de l'ancien compagnon de Molière. C'est la plus ancienne troupe de théâtre au monde encore en activité, surnommée 'la Maison de Molière'. Elle reçoit encore des subventions de l'État français."
+    },
+    {
+        evenement: "Bach compose la Passion selon saint Matthieu",
+        annee: 1727,
+        art: true,
+        trivia: "La Passion selon saint Matthieu de Bach (1727) est considérée comme l'un des plus grands chefs-d'œuvre de la musique occidentale. Oubliée après la mort de Bach, elle fut redécouverte et jouée par Felix Mendelssohn en 1829 — un siècle après sa création — déclenchant le renouveau de la musique baroque."
+    },
+    {
+        evenement: "Naissance de Mozart à Salzbourg",
+        annee: 1756,
+        art: true,
+        trivia: "Wolfgang Amadeus Mozart naît à Salzbourg en 1756. Prodige dès l'enfance, il compose ses premières œuvres à 5 ans et se produit devant les cours d'Europe à 6. En 35 ans de vie, il laisse 626 œuvres cataloguées dont Don Giovanni, La Flûte enchantée et le Requiem inachevé."
+    },
+    {
+        evenement: "Voltaire publie Candide",
+        annee: 1759,
+        art: true,
+        trivia: "Candide, publié en 1759 sous un pseudonyme, est un conte philosophique qui raille l'optimisme naïf de Leibniz ('tout est pour le mieux dans le meilleur des mondes possibles'). Voltaire l'écrivit en trois jours selon la légende. L'ouvrage est immédiatement censuré et brûlé — ce qui assure son succès."
+    },
+    {
+        evenement: "Beethoven crée la 9e Symphonie",
+        annee: 1824,
+        art: true,
+        trivia: "La 9e Symphonie de Beethoven est créée en 1824 alors que son auteur est totalement sourd. Lors de la première, Beethoven dirige un orchestre fantôme dos au public — le vrai chef est derrière lui. À la fin, il ne s'aperçoit pas des applaudissements : une choriste dut le retourner pour qu'il voie l'ovation."
+    },
+    {
+        evenement: "Delacroix peint La Liberté guidant le peuple",
+        annee: 1830,
+        art: true,
+        trivia: "Inspiré par les Trois Glorieuses de juillet 1830, Delacroix peint La Liberté guidant le peuple en quelques semaines. La femme au bonnet phrygien brandissant le drapeau tricolore est devenue l'allégorie de la République française. Son visage est depuis celui de Marianne."
+    },
+    {
+        evenement: "Balzac publie le premier tome de La Comédie Humaine",
+        annee: 1829,
+        art: true,
+        trivia: "La Comédie Humaine de Balzac est un cycle de 91 romans et nouvelles dépeignant la société française de 1815 à 1848 avec une précision sociologique saisissante. Balzac y invente le procédé des personnages récurrents. Son œuvre pharaonique, écrite en travaillant 16 heures par jour au café, resta inachevée à sa mort."
+    },
+    {
+        evenement: "Courbet expose Un enterrement à Ornans au Salon de Paris",
+        annee: 1850,
+        art: true,
+        trivia: "Un enterrement à Ornans (1849-1850) représente des paysans ordinaires à l'échelle monumentale réservée aux héros antiques. Le scandale est immense : le bourgeois parisien refuse de se voir ainsi montré. Courbet, ravi, pose les bases du réalisme et défie l'Académie qui impose sujets nobles et idéalisation."
+    },
+
     {
         evenement: "Soulèvement de la Vendée",
         annee: 1793,
