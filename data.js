@@ -262,7 +262,7 @@ const QUESTIONS = [
     {
         evenement: "Traité de Verdun",
         annee: 843,
-        trivia : "Le Traité de Verdun, signé en 843, a divisé l'Empire carolingien entre les trois fils de Louis le Germanique."
+        trivia : "Le traité de Verdun, signé en 843, divise l'Empire carolingien entre les trois fils de Louis le Pieux : Lothaire reçoit le titre impérial et la Francie médiane, Charles le Chauve obtient la Francie occidentale (future France), et Louis le Germanique la Francie orientale (future Allemagne)."
     },
     {
         evenement: "Couronnement de Hugues Capet",
@@ -1015,7 +1015,7 @@ const QUESTIONS = [
     {
         evenement: "Publication de Madame Bovary",
         annee: 1857,
-        trivia : "Honoré de Balzac meurt en 1850, juste avant le début du Second Empire. Son œuvre colossale, La Comédie Humaine, décrit avec une précision sociologique la société française de la Restauration et de la monarchie de Juillet. Victor Hugo prononça son éloge funèbre."
+        trivia : "Gustave Flaubert publie Madame Bovary en 1857. Le roman, portrait d'une bourgeoise provinciale rêvant d'une vie romanesque, est immédiatement poursuivi en justice pour 'outrage à la morale publique'. Flaubert est acquitté, et le scandale transforme le livre en triomphe."
     },
     {
         evenement: "Naissance du mouvement impressionniste",
@@ -1026,5 +1026,157 @@ const QUESTIONS = [
         evenement: "Début de la construction de l'Opéra Garnier",
         annee: 1861,
         trivia : "La construction de l'Opéra Garnier, commandée par Napoléon III et conçue par Charles Garnier, débute en 1861. Achevé en 1875, ce chef-d'œuvre du style Napoléon III incarne l'opulence et le faste du Second Empire. Son architecture a inspiré le Fantôme de l'Opéra de Gaston Leroux."
+    },
+
+    // ===== RÉVOLUTION FRANÇAISE (1789-1799) =====
+    {
+        evenement: "Réunion des États généraux à Versailles",
+        annee: 1789,
+        trivia: "Louis XVI convoque les États généraux pour la première fois depuis 1614 afin de résoudre la crise financière. La réunion des trois ordres — clergé, noblesse, tiers-état — déclenche une crise politique qui aboutira à la Révolution."
+    },
+    {
+        evenement: "Création de l'Assemblée nationale par le Tiers-État",
+        annee: 1789,
+        trivia: "Le 17 juin, le Tiers-État, refusant de voter par ordre, se proclame seul représentant de la nation. C'est un acte révolutionnaire : pour la première fois, le peuple affirme sa souveraineté face au roi."
+    },
+    {
+        evenement: "Serment du Jeu de paume",
+        annee: 1789,
+        trivia: "Chassés de leur salle de réunion, les députés du Tiers-État se retrouvent dans la salle du Jeu de paume à Versailles. Ils jurent solennellement de ne pas se séparer avant d'avoir donné une Constitution à la France."
+    },
+    {
+        evenement: "Prise de la Bastille",
+        annee: 1789,
+        trivia: "Le 14 juillet, le peuple parisien prend d'assaut la forteresse royale. La Bastille ne contenait que 7 prisonniers ce jour-là, mais elle symbolisait le despotisme royal. Cette date est devenue la fête nationale française."
+    },
+    {
+        evenement: "Nuit du 4 août : abolition des privilèges féodaux",
+        annee: 1789,
+        trivia: "En quelques heures d'enthousiasme collectif, l'Assemblée nationale abolit le système féodal, les dîmes et les privilèges de la noblesse et du clergé. Certains historiens y voient la nuit la plus importante de l'histoire de France."
+    },
+    {
+        evenement: "Déclaration des droits de l'homme et du citoyen",
+        annee: 1789,
+        trivia: "Ce texte fondateur proclame la liberté, l'égalité, la souveraineté nationale et la séparation des pouvoirs. Inspirée des Lumières et de la Déclaration d'indépendance américaine, elle reste un pilier du droit constitutionnel français."
+    },
+    {
+        evenement: "Marche des femmes sur Versailles",
+        annee: 1789,
+        trivia: "Des milliers de femmes marchent de Paris à Versailles pour réclamer du pain. Elles contraignent Louis XVI à les rejoindre à Paris. C'est la fin de Versailles comme centre du pouvoir royal."
+    },
+    {
+        evenement: "Fête de la Fédération au Champ-de-Mars",
+        annee: 1790,
+        trivia: "Le 14 juillet 1790, un an après la prise de la Bastille, 300 000 personnes célèbrent l'unité nationale au Champ-de-Mars. Louis XVI prête serment à la Constitution. C'est l'un des rares moments d'unanimité de la Révolution, avant que les divisions ne s'aggravent."
+    },
+    {
+        evenement: "Fuite à Varennes de la famille royale",
+        annee: 1791,
+        trivia: "Louis XVI tente de fuir la France déguisé en valet pour rejoindre les armées contre-révolutionnaires. Reconnu à Varennes par un maître de poste, il est ramené à Paris sous escorte. Cet épisode brise définitivement sa popularité."
+    },
+    {
+        evenement: "Première Constitution française",
+        annee: 1791,
+        trivia: "La France devient une monarchie constitutionnelle. Le roi conserve le pouvoir exécutif mais l'Assemblée législative contrôle les lois et les impôts. C'est la première constitution écrite de l'histoire française."
+    },
+    {
+        evenement: "Déclaration de guerre à l'Autriche",
+        annee: 1792,
+        trivia: "Les Girondins poussent à la guerre contre l'Autriche, espérant que le conflit forcerait Louis XVI à montrer ses vraies couleurs : soit se rallier à la Révolution, soit trahir et être démasqué. La guerre durera jusqu'en 1815."
+    },
+    {
+        evenement: "Prise du palais des Tuileries",
+        annee: 1792,
+        trivia: "Le 10 août, le palais des Tuileries est envahi par les insurgés parisiens. Les gardes suisses sont massacrés malgré leur résistance. Louis XVI est suspendu de ses fonctions et emprisonné au Temple avec sa famille."
+    },
+    {
+        evenement: "Bataille de Valmy",
+        annee: 1792,
+        trivia: "La victoire des armées françaises stoppe l'invasion prussienne. Le poète Goethe, présent sur le champ de bataille, aurait déclaré : 'De ce lieu et de ce jour date une nouvelle époque de l'histoire du monde.'"
+    },
+    {
+        evenement: "Proclamation de la Première République française",
+        annee: 1792,
+        trivia: "La Convention nationale abolit la royauté et proclame la République le 21 septembre. L'An I du nouveau calendrier républicain commence. La France ne sera plus jamais une monarchie absolue."
+    },
+    {
+        evenement: "Exécution de Louis XVI",
+        annee: 1793,
+        trivia: "Louis XVI est guillotiné place de la Révolution (actuelle place de la Concorde) le 21 janvier. Ses dernières paroles furent : 'Je meurs innocent de tous les crimes qu'on m'impute.' Sa mort choque les monarchies européennes."
+    },
+    {
+        evenement: "Assassinat de Marat dans sa baignoire",
+        annee: 1793,
+        trivia: "Charlotte Corday, une girondine normande, poignarde le révolutionnaire Jean-Paul Marat dans son bain médicinal où il traitait une maladie de peau. Elle fut guillotinée quatre jours plus tard. David immortalisa la scène dans un célèbre tableau."
+    },
+    {
+        evenement: "Exécution de Marie-Antoinette",
+        annee: 1793,
+        trivia: "La reine est guillotinée le 16 octobre, neuf mois après son mari Louis XVI. Surnommée 'Madame Déficit' pour ses dépenses, elle avait 37 ans. Sa dernière parole, après avoir marché sur le pied du bourreau, fut : 'Pardonnez-moi, monsieur.'"
+    },
+    {
+        evenement: "Levée en masse",
+        annee: 1793,
+        trivia: "Face aux armées coalisées de toute l'Europe, la Convention décrète la mobilisation générale de toute la nation : hommes, femmes, enfants et vieillards ont chacun un rôle. C'est la première conscription de masse de l'histoire moderne, mobilisant près de 800 000 hommes."
+    },
+    {
+        evenement: "Création du Comité de salut public",
+        annee: 1793,
+        trivia: "Ce comité gouvernemental de douze membres, rapidement dominé par Robespierre, dirige la France pendant la Terreur avec des pouvoirs quasi dictatoriaux. Il organise la levée en masse et la défense nationale contre les coalitions étrangères."
+    },
+    {
+        evenement: "Exécution de Danton sur ordre de Robespierre",
+        annee: 1794,
+        trivia: "Georges Danton, ancien allié de Robespierre et figure populaire de la Révolution, est guillotiné le 5 avril. En montant à l'échafaud, il aurait dit : 'Tu montreras ma tête au peuple, elle en vaut la peine.' Robespierre sera guillotiné à son tour quatre mois plus tard."
+    },
+    {
+        evenement: "Abolition de l'esclavage dans les colonies françaises",
+        annee: 1794,
+        trivia: "La Convention abolit l'esclavage le 4 février — la première nation au monde à le faire. Napoléon le rétablira en 1802 sous la pression des colons. L'abolition définitive n'interviendra qu'en 1848 sous la IIe République."
+    },
+    {
+        evenement: "Coup d'État du 9 Thermidor : chute de Robespierre",
+        annee: 1794,
+        trivia: "Robespierre est arrêté à la Convention, puis guillotiné le lendemain avec ses alliés. Cet événement met fin à la Terreur après 17 000 exécutions officielles. Le mot 'thermidorien' désigne depuis une réaction conservatrice après une période d'excès."
+    },
+    {
+        evenement: "Bonaparte réprime l'insurrection royaliste du 13 Vendémiaire",
+        annee: 1795,
+        trivia: "Un soulèvement royaliste menace la Convention. Barras confie à Bonaparte le soin de le réprimer. Il disperse la foule au canon — 'une volée de mitraille' selon ses propres mots. Cet épisode le propulse au rang de général en chef et le fait connaître à Paris."
+    },
+    {
+        evenement: "Début du Directoire",
+        annee: 1795,
+        trivia: "Un gouvernement de cinq directeurs prend le pouvoir après la chute de Robespierre. C'est une période d'instabilité chronique, de corruption et de guerres extérieures, qui prépare le terrain au coup d'État de Bonaparte."
+    },
+    {
+        evenement: "Début de la campagne d'Italie de Bonaparte",
+        annee: 1796,
+        trivia: "Le jeune général de 26 ans remporte une série de victoires éclatantes contre les Autrichiens. En quelques mois, il conquiert la majeure partie de l'Italie du Nord, s'enrichit personnellement et envoie des œuvres d'art au Louvre."
+    },
+    {
+        evenement: "Traité de Campo-Formio",
+        annee: 1797,
+        trivia: "Bonaparte impose la paix à l'Autriche sans consulter le Directoire. La France obtient officiellement la Belgique et les Îles Ioniennes. L'Autriche reçoit Venise en compensation, mettant fin à mille ans d'indépendance de la Sérénissime."
+    },
+    {
+        evenement: "Expédition de Bonaparte en Égypte",
+        annee: 1798,
+        trivia: "Bonaparte part conquérir l'Égypte pour couper la route des Indes à l'Angleterre. La pierre de Rosette, clé du déchiffrement des hiéroglyphes, y est découverte. L'expédition est un échec militaire mais un triomphe scientifique."
+    },
+    {
+        evenement: "Coup d'État du 18 Brumaire de Bonaparte",
+        annee: 1799,
+        trivia: "Le 9 novembre, Bonaparte renverse le Directoire avec l'aide de son frère Lucien, président du Conseil des Cinq-Cents, et de l'abbé Sieyès, théoricien politique. Il devient Premier consul avec des pouvoirs quasi dictatoriaux. C'est la fin de la Révolution française et le début du Consulat."
+    },
+    {
+        evenement: "Loi des suspects",
+        annee: 1793,
+        trivia: "Cette loi permet d'arrêter toute personne suspecte de ne pas être assez révolutionnaire : nobles, prêtres réfractaires, parents d'émigrés. Elle alimente la Grande Terreur et aboutit à l'emprisonnement de 300 000 personnes."
+    },
+    {
+        evenement: "Soulèvement de la Vendée",
+        annee: 1793,
+        trivia: "Les paysans vendéens, catholiques et royalistes, se soulèvent contre la conscription et la persécution des prêtres. La guerre de Vendée fait entre 100 000 et 250 000 morts et reste l'un des conflits les plus meurtriers de la Révolution."
     }
 ];

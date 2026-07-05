@@ -18,7 +18,9 @@
 </head>
 
 <body>
-    <!-- <body> contient tout ce qui est visible à l'écran -->
+    <button id="btn-mute" onclick="toggleMute()" title="Couper/activer le son">
+        <i id="icone-mute" class="fa-solid fa-volume-high"></i>
+    </button>
 
     <!-- ===== ÉCRAN D'ACCUEIL ===== -->
     <!-- id="ecran-accueil" permet à JavaScript de retrouver cet élément précis -->
@@ -56,6 +58,11 @@
                 <canvas class="icone-3d" id="canvas-classique"></canvas>
                 <button class="btn-classique" onclick="demarrerPartie('classique')">Époque classique</button>
                 <small id="compte-classique"></small>
+            </div>
+            <div class="cellule-epoque" id="cellule-revolution">
+                <canvas class="icone-3d" id="canvas-revolution"></canvas>
+                <button class="btn-revolution" onclick="demarrerPartie('revolution')">Révolution</button>
+                <small id="compte-revolution"></small>
             </div>
             <div class="cellule-epoque" id="cellule-premier-empire">
                 <canvas class="icone-3d" id="canvas-premier-empire"></canvas>

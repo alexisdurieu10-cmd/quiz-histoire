@@ -43,6 +43,7 @@ function getEpoque(annee) {
     if (annee <= 1492) return "moyen-age";
     if (annee <= 1620) return "renaissance";
     if (annee <= 1715) return "classique";
+    if (annee >= 1789 && annee <= 1799) return "revolution";
     if (annee >= 1804 && annee <= 1815) return "premier-empire";
     if (annee >= 1852 && annee <= 1870) return "second-empire";
     return "autre";
@@ -258,6 +259,14 @@ function terminerPartie() {
 // Elle permet de générer des sons par code en contrôlant des oscillateurs.
 
 let audioCtx = null;
+let muted = false;
+
+function toggleMute() {
+    muted = !muted;
+    document.getElementById("icone-mute").className = muted
+        ? "fa-solid fa-volume-xmark"
+        : "fa-solid fa-volume-high";
+}
 
 function getAudioCtx() {
     if (!audioCtx) {
@@ -270,6 +279,7 @@ function getAudioCtx() {
 
 // Joue une note : fréquence (Hz), délai (s), durée (s), forme d'onde, volume
 function note(freq, debut, duree, type = 'sine', vol = 0.25) {
+    if (muted) return;
     const c = getAudioCtx();
     const osc  = c.createOscillator();
     const gain = c.createGain();
@@ -344,6 +354,7 @@ function sonPremierEmpire() {
 }
 
 function sonSecondEmpire() {
+    if (muted) return;
     // Sifflet à vapeur — glissement fréquence vers le haut
     const c = getAudioCtx();
     const osc  = c.createOscillator();
@@ -359,6 +370,11 @@ function sonSecondEmpire() {
     osc.stop(c.currentTime + 0.35);
 }
 
+function sonRevolution() {
+    // Roulement de tambour révolutionnaire
+    [0, 0.06, 0.12, 0.18, 0.24, 0.3].forEach(t => note(110, t, 0.07, 'triangle', 0.28));
+}
+
 function sonToutesEpoques() {
     // Carillon — trois harmoniques
     [[1047, 0], [1319, 0.09], [1568, 0.18]].forEach(([f, t]) => note(f, t, 0.4, 'sine', 0.11));
@@ -372,6 +388,7 @@ function sonToutesEpoques() {
     ['.btn-moyen-age',       sonMoyenAge      ],
     ['.btn-renaissance',     sonRenaissance   ],
     ['.btn-classique',       sonClassique     ],
+    ['.btn-revolution',      sonRevolution    ],
     ['.btn-premier-empire',  sonPremierEmpire ],
     ['.btn-second-empire',   sonSecondEmpire  ],
 ].forEach(([selecteur, son]) => {
@@ -413,6 +430,7 @@ document.getElementById("compte-antiquite").textContent    = `${QUESTIONS.filter
 document.getElementById("compte-moyen-age").textContent  = `${QUESTIONS.filter(q => getEpoque(q.annee) === "moyen-age").length} questions`;
 document.getElementById("compte-renaissance").textContent = `${QUESTIONS.filter(q => getEpoque(q.annee) === "renaissance").length} questions`;
 document.getElementById("compte-classique").textContent        = `${QUESTIONS.filter(q => getEpoque(q.annee) === "classique").length} questions`;
+document.getElementById("compte-revolution").textContent       = `${QUESTIONS.filter(q => getEpoque(q.annee) === "revolution").length} questions`;
 document.getElementById("compte-premier-empire").textContent   = `${QUESTIONS.filter(q => getEpoque(q.annee) === "premier-empire").length} questions`;
 document.getElementById("compte-second-empire").textContent    = `${QUESTIONS.filter(q => getEpoque(q.annee) === "second-empire").length} questions`;
 
@@ -611,10 +629,45 @@ function creerRails() {
     return g;
 }
 
+function creerGuillotine() {
+    const g = new THREE.Group();
+    const mBois  = mat(0x7b4f2e);
+    const mAcier = mat(0xd8d8d8, 150);
+
+    const base = new THREE.Mesh(new THREE.BoxGeometry(1.1, 0.1, 0.3), mBois);
+    base.position.y = -0.85;
+    g.add(base);
+
+    const montantG = new THREE.Mesh(new THREE.BoxGeometry(0.11, 1.72, 0.11), mBois);
+    montantG.position.set(-0.44, -0.04, 0);
+    g.add(montantG);
+
+    const montantD = new THREE.Mesh(new THREE.BoxGeometry(0.11, 1.72, 0.11), mBois);
+    montantD.position.set(0.44, -0.04, 0);
+    g.add(montantD);
+
+    const traverseH = new THREE.Mesh(new THREE.BoxGeometry(0.99, 0.12, 0.12), mBois);
+    traverseH.position.y = 0.79;
+    g.add(traverseH);
+
+    const lame = new THREE.Mesh(new THREE.BoxGeometry(0.72, 0.06, 0.06), mAcier);
+    lame.rotation.z = -Math.PI / 6;
+    lame.position.y = 0.25;
+    g.add(lame);
+
+    const lunette = new THREE.Mesh(new THREE.TorusGeometry(0.15, 0.035, 8, 16), mBois);
+    lunette.position.y = -0.68;
+    g.add(lunette);
+
+    g.scale.setScalar(0.88);
+    return g;
+}
+
 creerScene3D("canvas-prehistoire",    creerOs,         null, "cellule-prehistoire");
 creerScene3D("canvas-antiquite",      creerTemple,     null, "cellule-antiquite");
 creerScene3D("canvas-moyen-age",      creerEpee,       null, "cellule-moyen-age");
 creerScene3D("canvas-renaissance",    creerArmillaire, null, "cellule-renaissance");
 creerScene3D("canvas-classique",      creerCouronne,   null, "cellule-classique");
+creerScene3D("canvas-revolution",     creerGuillotine, null, "cellule-revolution");
 creerScene3D("canvas-premier-empire", creerLivre,      null, "cellule-premier-empire");
 creerScene3D("canvas-second-empire",  creerRails,      null, "cellule-second-empire");

@@ -1,3 +1,33 @@
+/* ===== BOUTON MUTE (fixe en haut à droite) ===== */
+#btn-mute {
+    position: fixed;
+    top: 14px;
+    right: 14px;
+    z-index: 100;
+    background-color: #0f3460;
+    color: #a8b2d8;
+    border: 2px solid #a8b2d8;
+    border-radius: 50%;
+    width: 42px;
+    height: 42px;
+    font-size: 1rem;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+
+#btn-mute:hover, #btn-mute:focus {
+    color: #ffffff;
+    border-color: #ffffff;
+    background-color: #1a4a80;
+    animation: none;
+    transform: none;
+    box-shadow: none;
+}
+
 /* ===== RESET ET BASE ===== */
 /* Le navigateur applique des styles par défaut à tous les éléments.
    On les remet à zéro pour partir sur une base propre. */
@@ -328,6 +358,13 @@ small {
 }
 .btn-classique:hover, .btn-classique:focus {
     background-color: #154360;
+}
+
+.btn-revolution {
+    background-color: #922b21; /* Rouge révolutionnaire */
+}
+.btn-revolution:hover, .btn-revolution:focus {
+    background-color: #6e1f18;
 }
 
 .btn-premier-empire {
