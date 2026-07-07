@@ -490,11 +490,11 @@ function creerScene3D(canvasId, creerObjet, _couleur, celluleId) {
     if (!canvas) return;
 
     const renderer = new THREE.WebGLRenderer({ canvas, alpha: true, antialias: true });
-    renderer.setSize(80, 80);
+    renderer.setSize(110, 80);
     renderer.setPixelRatio(window.devicePixelRatio);
 
     const scene = new THREE.Scene();
-    const camera = new THREE.PerspectiveCamera(45, 1, 0.1, 100);
+    const camera = new THREE.PerspectiveCamera(45, 110 / 80, 0.1, 100);
     camera.position.z = 4;
 
     scene.add(new THREE.AmbientLight(0xffffff, 0.5));
@@ -506,6 +506,7 @@ function creerScene3D(canvasId, creerObjet, _couleur, celluleId) {
     scene.add(lumiereArriere);
 
     const objet = creerObjet();
+    objet.rotation.z = 0.1;
     const pivot = new THREE.Group();
     pivot.rotation.x = 0.6;
     pivot.add(objet);
@@ -551,7 +552,7 @@ function creerOs() {
         g.add(s);
     });
     g.add(tige);
-    g.scale.setScalar(0.85);
+    g.scale.setScalar(1.09);
     return g;
 }
 
@@ -572,7 +573,7 @@ function creerTemple() {
     const toit = new THREE.Mesh(new THREE.BoxGeometry(2.0, 0.48, 0.8), mToit);
     toit.position.y = 0.95;
     g.add(toit);
-    g.scale.setScalar(0.82);
+    g.scale.setScalar(1.05);
     return g;
 }
 
@@ -587,8 +588,10 @@ function creerEpee() {
     poignee.position.y = -1.1;
     const pommeau = new THREE.Mesh(new THREE.SphereGeometry(0.18, 8, 8), mat(0xffcc00, 150));
     pommeau.position.y = -1.48;
-    g.add(lame, garde, poignee, pommeau);
-    g.scale.setScalar(0.78);
+    const pointe = new THREE.Mesh(new THREE.ConeGeometry(0.07, 0.28, 4), mat(0xe8e8ff, 180));
+    pointe.position.y = 1.44;
+    g.add(lame, garde, poignee, pommeau, pointe);
+    g.scale.setScalar(1.0);
     return g;
 }
 
@@ -604,29 +607,45 @@ function creerArmillaire() {
         g.add(tore);
     });
     g.add(new THREE.Mesh(new THREE.SphereGeometry(0.22, 10, 10), mGlobe));
-    g.scale.setScalar(0.9);
+    g.scale.setScalar(1.15);
     return g;
 }
 
-// Couronne : tore or + 5 cônes avec gemmes disposés en cercle
+// Couronne : anneau fin + 6 piliers + pointes dorées + gemmes — espace vide entre les piliers
 function creerCouronne() {
     const g = new THREE.Group();
-    const mOr  = mat(0xffd700, 180);
-    const gemmes = [0xff1100, 0x0055ff, 0xff1100, 0x0055ff, 0x00cc00];
+    const mArgent = mat(0xd0d8e8, 160);
+    const mOr     = mat(0xffd700, 220);
+    const couleurs = [0xff2200, 0x00ddff, 0x00ee44];
 
-    const anneau = new THREE.Mesh(new THREE.TorusGeometry(0.7, 0.2, 8, 32), mOr);
+    // Anneau de base (fin, horizontal)
+    const anneau = new THREE.Mesh(new THREE.TorusGeometry(0.65, 0.18, 8, 24), mOr);
     anneau.rotation.x = Math.PI / 2;
+    anneau.position.y = -0.5;
     g.add(anneau);
 
-    for (let i = 0; i < 5; i++) {
-        const angle = (i / 5) * Math.PI * 2;
-        const pointe = new THREE.Mesh(new THREE.ConeGeometry(0.14, 0.75, 6), mOr);
-        pointe.position.set(Math.cos(angle) * 0.7, 0.45, Math.sin(angle) * 0.7);
-        const gemme = new THREE.Mesh(new THREE.SphereGeometry(0.1, 8, 8), mat(gemmes[i], 220));
-        gemme.position.set(Math.cos(angle) * 0.7, 0.88, Math.sin(angle) * 0.7);
-        g.add(pointe, gemme);
+    // 6 piliers + pointes + gemmes
+    for (let i = 0; i < 6; i++) {
+        const angle = (i / 6) * Math.PI * 2;
+        const x = Math.cos(angle) * 0.65;
+        const z = Math.sin(angle) * 0.65;
+
+        // Pilier + pointe : même rayon, même couleur — continuité parfaite
+        const pilier = new THREE.Mesh(new THREE.CylinderGeometry(0.11, 0.11, 0.52, 8), mOr);
+        pilier.position.set(x, -0.24, z);
+        g.add(pilier);
+
+        const pointe = new THREE.Mesh(new THREE.ConeGeometry(0.11, 0.82, 6), mOr);
+        pointe.position.set(x, 0.37, z);
+        g.add(pointe);
+
+        // Gemme au bout de la pointe
+        const gemme = new THREE.Mesh(new THREE.SphereGeometry(0.1, 8, 8), mat(couleurs[i % 3], 240));
+        gemme.position.set(x, 0.79, z);
+        g.add(gemme);
     }
-    g.scale.setScalar(0.9);
+
+    g.scale.setScalar(1.15);
     return g;
 }
 
@@ -644,15 +663,29 @@ function creerLivre() {
     const dos = new THREE.Mesh(new THREE.BoxGeometry(0.06, 1.7, 0.34), mat(0x061870));
     dos.position.x = -0.68;
     g.add(dos);
-    // Titre doré en relief devant les pages
-    const titre = new THREE.Mesh(new THREE.BoxGeometry(0.82, 0.28, 0.02), mat(0xffd700, 200));
-    titre.position.set(0.03, 0.38, 0.18);
-    g.add(titre);
-    // Ligne décorative sous le titre
-    const ligne = new THREE.Mesh(new THREE.BoxGeometry(0.82, 0.04, 0.02), mat(0xffd700, 200));
-    ligne.position.set(0.03, 0.18, 0.18);
-    g.add(ligne);
-    g.scale.setScalar(0.82);
+    // Étiquette "Code Civil" en canvas texture
+    const cv = document.createElement('canvas');
+    cv.width = 512; cv.height = 256;
+    const ctx = cv.getContext('2d');
+    ctx.fillStyle = '#0a2a8a';
+    ctx.fillRect(0, 0, 512, 256);
+    ctx.fillStyle = '#ffd700';
+    ctx.strokeStyle = '#0a2a8a';
+    ctx.lineWidth = 4;
+    ctx.font = 'bold 88px Arial, sans-serif';
+    ctx.textAlign = 'center';
+    ctx.textBaseline = 'middle';
+    ctx.strokeText('CODE', 256, 76);
+    ctx.fillText('CODE', 256, 76);
+    ctx.strokeText('CIVIL', 256, 180);
+    ctx.fillText('CIVIL', 256, 180);
+    const etiquette = new THREE.Mesh(
+        new THREE.PlaneGeometry(0.82, 0.41),
+        new THREE.MeshBasicMaterial({ map: new THREE.CanvasTexture(cv) })
+    );
+    etiquette.position.set(0.03, 0.2, 0.185);
+    g.add(etiquette);
+    g.scale.setScalar(1.3);
     return g;
 }
 
@@ -673,7 +706,7 @@ function creerRails() {
         t.position.set(0, -0.08, z);
         g.add(t);
     });
-    g.scale.setScalar(0.85);
+    g.scale.setScalar(1.09);
     return g;
 }
 
@@ -698,16 +731,31 @@ function creerGuillotine() {
     traverseH.position.y = 0.79;
     g.add(traverseH);
 
-    const lame = new THREE.Mesh(new THREE.BoxGeometry(0.72, 0.06, 0.06), mAcier);
-    lame.rotation.z = -Math.PI / 6;
-    lame.position.y = 0.25;
-    g.add(lame);
+    // Lame : trapèze custom — haut plat, bas diagonal (tranchant)
+    // Bord supérieur : y=0.76 (sous la traverse)
+    // Bord inférieur diagonal : gauche y=0.44, droite y=0.06 (angle ~30°)
+    const xL = -0.37, xR = 0.37, d = 0.04;  // légèrement en retrait des montants et de la traverse
+    const lameGeo = new THREE.BufferGeometry();
+    lameGeo.setAttribute('position', new THREE.BufferAttribute(new Float32Array([
+        xL, 0.72,  d,  xR, 0.72,  d,  xR, 0.06,  d,  xL, 0.42,  d,  // face avant  0-3
+        xL, 0.72, -d,  xR, 0.72, -d,  xR, 0.06, -d,  xL, 0.42, -d,  // face arrière 4-7
+    ]), 3));
+    lameGeo.setIndex([
+        0,1,2, 0,2,3,   // avant
+        4,6,5, 4,7,6,   // arrière
+        0,4,5, 0,5,1,   // haut
+        1,5,6, 1,6,2,   // droite
+        2,6,7, 2,7,3,   // bas diagonal (tranchant)
+        3,7,4, 3,4,0,   // gauche
+    ]);
+    lameGeo.computeVertexNormals();
+    g.add(new THREE.Mesh(lameGeo, mat(0xe8e8ff, 220)));
 
     const lunette = new THREE.Mesh(new THREE.TorusGeometry(0.15, 0.035, 8, 16), mBois);
     lunette.position.y = -0.68;
     g.add(lunette);
 
-    g.scale.setScalar(0.88);
+    g.scale.setScalar(1.41);
     return g;
 }
 
@@ -735,7 +783,7 @@ function creerPinceau() {
     soies.position.y = -0.99;
     g.add(soies);
 
-    g.scale.setScalar(0.9);
+    g.scale.setScalar(1.15);
     return g;
 }
 
@@ -754,31 +802,75 @@ function creerBougie() {
     const lueur = new THREE.Mesh(new THREE.ConeGeometry(0.08, 0.28, 8), mat(0xffff80, 200));
     lueur.position.y = 1.1;
     g.add(lueur);
-    g.scale.setScalar(0.82);
+    g.scale.setScalar(1.05);
     return g;
 }
 
-// Torche : manche bois, tête large, flamme orange + lueur jaune
-function creerTorche() {
+// Trône : 4 pieds, siège avec coussin rouge, dossier haut, accoudoirs, couronnement doré
+function creerTrone() {
     const g = new THREE.Group();
-    const manche = new THREE.Mesh(new THREE.CylinderGeometry(0.1, 0.12, 1.4, 8), mat(0x5c3d1e));
-    manche.position.y = -0.4;
-    g.add(manche);
-    const tete = new THREE.Mesh(new THREE.CylinderGeometry(0.22, 0.15, 0.4, 8), mat(0x8b4513));
-    tete.position.y = 0.5;
-    g.add(tete);
-    const flamme = new THREE.Mesh(new THREE.ConeGeometry(0.28, 0.8, 8), mat(0xff4500, 80));
-    flamme.position.y = 1.1;
-    g.add(flamme);
-    const lueur = new THREE.Mesh(new THREE.ConeGeometry(0.14, 0.55, 8), mat(0xffcc00, 180));
-    lueur.position.y = 1.05;
-    g.add(lueur);
-    g.scale.setScalar(0.82);
+    const mBois    = mat(0x6b3510, 60);
+    const mOr      = mat(0xffd700, 200);
+    const mVelours = mat(0x8b0000, 30);
+
+    // 4 pieds
+    [[-0.42, 0.38], [0.42, 0.38], [-0.42, -0.36], [0.42, -0.36]].forEach(([x, z]) => {
+        const pied = new THREE.Mesh(new THREE.CylinderGeometry(0.055, 0.07, 0.5, 6), mBois);
+        pied.position.set(x, -0.85, z);
+        g.add(pied);
+    });
+
+    // Siège
+    const siege = new THREE.Mesh(new THREE.BoxGeometry(1.05, 0.1, 0.95), mBois);
+    siege.position.set(0, -0.55, 0.08);
+    g.add(siege);
+
+    // Coussin velours
+    const coussin = new THREE.Mesh(new THREE.BoxGeometry(0.85, 0.09, 0.78), mVelours);
+    coussin.position.set(0, -0.45, 0.08);
+    g.add(coussin);
+
+    // Dossier
+    const dossier = new THREE.Mesh(new THREE.BoxGeometry(1.05, 1.5, 0.1), mBois);
+    dossier.position.set(0, 0.2, -0.24);
+    g.add(dossier);
+
+    // Bandeau doré sur le dossier (en avant du dossier pour éviter le z-fighting)
+    const cadre = new THREE.Mesh(new THREE.BoxGeometry(1.05, 0.06, 0.06), mOr);
+    cadre.position.set(0, 0.93, -0.15);
+    g.add(cadre);
+
+    // Accoudoirs (horizontal + montant vertical)
+    [-0.48, 0.48].forEach(x => {
+        const h = new THREE.Mesh(new THREE.BoxGeometry(0.1, 0.06, 0.82), mBois);
+        h.position.set(x, -0.28, 0.08);
+        g.add(h);
+        const v = new THREE.Mesh(new THREE.BoxGeometry(0.1, 0.28, 0.08), mBois);
+        v.position.set(x, -0.42, -0.3);
+        g.add(v);
+    });
+
+    // Couronnement : arcade dorée (demi-tore) — en avant du dossier
+    const arc = new THREE.Mesh(new THREE.TorusGeometry(0.22, 0.045, 6, 16, Math.PI), mOr);
+    arc.position.set(0, 1.0, -0.15);
+    g.add(arc);
+
+    // Finials dorés (cônes + sphères) — au-dessus du dossier, en avant
+    [-0.48, 0.48].forEach(x => {
+        const cone = new THREE.Mesh(new THREE.ConeGeometry(0.065, 0.22, 6), mOr);
+        cone.position.set(x, 1.12, -0.15);
+        g.add(cone);
+        const boule = new THREE.Mesh(new THREE.SphereGeometry(0.07, 6, 6), mOr);
+        boule.position.set(x, 1.0, -0.15);
+        g.add(boule);
+    });
+
+    g.scale.setScalar(1.1);
     return g;
 }
 
-creerScene3D("canvas-lumieres",       creerBougie,     null, "cellule-lumieres");
+creerScene3D("canvas-lumieres",       creerBougie,      null, "cellule-lumieres");
 creerScene3D("canvas-revolution",     creerGuillotine, null, "cellule-revolution");
 creerScene3D("canvas-premier-empire", creerLivre,      null, "cellule-premier-empire");
-creerScene3D("canvas-restauration",   creerTorche,     null, "cellule-restauration");
+creerScene3D("canvas-restauration",   creerTrone,      null, "cellule-restauration");
 creerScene3D("canvas-second-empire",  creerRails,      null, "cellule-second-empire");
