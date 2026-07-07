@@ -58,6 +58,8 @@ function getEpoque(annee) {
     if (annee >= 1800 && annee <= 1815) return "premier-empire";
     if (annee >= 1816 && annee <= 1851) return "restauration";
     if (annee >= 1852 && annee <= 1870) return "second-empire";
+    if (annee >= 1871 && annee <= 1913) return "troisieme-republique";
+    if (annee >= 1914 && annee <= 1945) return "guerres-mondiales";
     return "autre";
 }
 
@@ -471,7 +473,9 @@ document.getElementById("compte-lumieres").textContent        = `${QUESTIONS.fil
 document.getElementById("compte-revolution").textContent       = `${QUESTIONS.filter(q => qHist(q) && getEpoque(q.annee) === "revolution").length} questions`;
 document.getElementById("compte-premier-empire").textContent   = `${QUESTIONS.filter(q => qHist(q) && getEpoque(q.annee) === "premier-empire").length} questions`;
 document.getElementById("compte-restauration").textContent    = `${QUESTIONS.filter(q => qHist(q) && getEpoque(q.annee) === "restauration").length} questions`;
-document.getElementById("compte-second-empire").textContent    = `${QUESTIONS.filter(q => qHist(q) && getEpoque(q.annee) === "second-empire").length} questions`;
+document.getElementById("compte-second-empire").textContent         = `${QUESTIONS.filter(q => qHist(q) && getEpoque(q.annee) === "second-empire").length} questions`;
+document.getElementById("compte-troisieme-republique").textContent  = `${QUESTIONS.filter(q => qHist(q) && getEpoque(q.annee) === "troisieme-republique").length} questions`;
+document.getElementById("compte-guerres-mondiales").textContent     = `${QUESTIONS.filter(q => qHist(q) && getEpoque(q.annee) === "guerres-mondiales").length} questions`;
 
 // Affiche le nombre de questions sous chaque bouton du menu art.
 const qArt = q => q.art === true;
@@ -869,8 +873,66 @@ function creerTrone() {
     return g;
 }
 
+// Tour Eiffel : 4 jambes inclinées, plateformes, fût, flèche
+function creerTourEiffel() {
+    const g = new THREE.Group();
+    const m = mat(0x7a6040, 70);
+
+    [[-1,-1],[1,-1],[-1,1],[1,1]].forEach(([sx, sz]) => {
+        const jambe = new THREE.Mesh(new THREE.CylinderGeometry(0.05, 0.13, 0.85, 6), m);
+        jambe.position.set(sx * 0.42, -0.72, sz * 0.42);
+        jambe.rotation.z = sx * 0.38;
+        jambe.rotation.x = sz * 0.38;
+        g.add(jambe);
+    });
+    const p1 = new THREE.Mesh(new THREE.CylinderGeometry(0.44, 0.44, 0.06, 12), m);
+    p1.position.y = -0.33;
+    g.add(p1);
+    const mid = new THREE.Mesh(new THREE.CylinderGeometry(0.18, 0.42, 0.5, 12), m);
+    mid.position.y = 0.08;
+    g.add(mid);
+    const p2 = new THREE.Mesh(new THREE.CylinderGeometry(0.19, 0.19, 0.06, 12), m);
+    p2.position.y = 0.35;
+    g.add(p2);
+    const fut = new THREE.Mesh(new THREE.CylinderGeometry(0.06, 0.16, 0.55, 8), m);
+    fut.position.y = 0.68;
+    g.add(fut);
+    const fleche = new THREE.Mesh(new THREE.ConeGeometry(0.05, 0.38, 8), m);
+    fleche.position.y = 1.13;
+    g.add(fleche);
+
+    g.scale.setScalar(1.05);
+    return g;
+}
+
+// Casque de poilu (casque Adrian) : calotte, bord, crête
+function creerCasque() {
+    const g = new THREE.Group();
+    const m = mat(0x4a5240, 40);
+
+    const dome = new THREE.Mesh(
+        new THREE.SphereGeometry(0.62, 12, 8, 0, Math.PI * 2, 0, Math.PI * 0.55), m);
+    dome.position.y = 0.05;
+    g.add(dome);
+    const bord = new THREE.Mesh(new THREE.TorusGeometry(0.66, 0.09, 6, 24), m);
+    bord.rotation.x = Math.PI / 2;
+    bord.position.y = 0.04;
+    g.add(bord);
+    const crete = new THREE.Mesh(new THREE.CylinderGeometry(0.05, 0.07, 0.7, 6), m);
+    crete.position.y = 0.58;
+    g.add(crete);
+    const creteTop = new THREE.Mesh(new THREE.SphereGeometry(0.06, 6, 6), m);
+    creteTop.position.y = 0.95;
+    g.add(creteTop);
+
+    g.scale.setScalar(1.15);
+    return g;
+}
+
 creerScene3D("canvas-lumieres",       creerBougie,      null, "cellule-lumieres");
 creerScene3D("canvas-revolution",     creerGuillotine, null, "cellule-revolution");
 creerScene3D("canvas-premier-empire", creerLivre,      null, "cellule-premier-empire");
 creerScene3D("canvas-restauration",   creerTrone,      null, "cellule-restauration");
-creerScene3D("canvas-second-empire",  creerRails,      null, "cellule-second-empire");
+creerScene3D("canvas-second-empire",        creerRails,             null, "cellule-second-empire");
+creerScene3D("canvas-troisieme-republique", creerTourEiffel,        null, "cellule-troisieme-republique");
+creerScene3D("canvas-guerres-mondiales",    creerCasque,            null, "cellule-guerres-mondiales");

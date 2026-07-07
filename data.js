@@ -1252,6 +1252,210 @@ const QUESTIONS = [
         trivia : "La construction de l'Opéra Garnier, commandée par Napoléon III et conçue par Charles Garnier, débute en 1861. Achevé en 1875, ce chef-d'œuvre du style Napoléon III incarne l'opulence et le faste du Second Empire. Son architecture a inspiré le Fantôme de l'Opéra de Gaston Leroux."
     },
 
+    // --- IIIe République (1871–1913) ---
+    {
+        evenement: "Commune de Paris",
+        annee: 1871,
+        trivia: "Du 18 mars au 28 mai 1871, Paris est gouvernée par la Commune, un gouvernement révolutionnaire né après la défaite contre la Prusse. La 'Semaine sanglante' voit l'armée française reprendre la ville au prix de 10 000 à 30 000 communards tués — le bilan le plus sanglant de l'histoire de France au XIXe siècle."
+    },
+    {
+        evenement: "Traité de Francfort — perte de l'Alsace-Lorraine",
+        annee: 1871,
+        trivia: "Le traité de Francfort du 10 mai 1871 impose à la France vaincue la cession de l'Alsace et d'une partie de la Lorraine à l'Empire allemand, ainsi que 5 milliards de francs-or de réparations. La 'revanche' devient l'obsession nationale française pendant 43 ans, jusqu'en 1914."
+    },
+    {
+        evenement: "Première exposition impressionniste",
+        annee: 1874,
+        trivia: "Le 15 avril 1874, Monet, Renoir, Degas et Pissarro organisent leur première exposition collective dans l'atelier du photographe Nadar à Paris. Le critique Louis Leroy les raille en les appelant 'impressionnistes' d'après le tableau de Monet 'Impression, soleil levant' — le nom leur restera pour toujours."
+    },
+    {
+        evenement: "Lois constitutionnelles de la IIIe République",
+        annee: 1875,
+        trivia: "En janvier 1875, trois lois fondent la IIIe République : Sénat, Chambre des députés, Présidence. La République est adoptée à une voix de majorité. Cette constitution, pensée comme provisoire, durera 65 ans — jusqu'à la débâcle de 1940."
+    },
+    {
+        evenement: "Le 14 juillet devient fête nationale",
+        annee: 1880,
+        trivia: "La loi du 6 juillet 1880 choisit le 14 juillet comme fête nationale, commémorant à la fois la prise de la Bastille (1789) et la Fête de la Fédération (1790). Le premier défilé militaire sur les Champs-Élysées a lieu le 14 juillet 1880."
+    },
+    {
+        evenement: "École publique gratuite, obligatoire et laïque",
+        annee: 1882,
+        trivia: "Les lois Jules Ferry rendent l'enseignement primaire public gratuit (1881) puis obligatoire pour les 6-13 ans et laïque (1882) : crucifix retirés des classes, instituteurs civils remplaçant les religieux. Naît le mythe de 'l'instituteur hussard de la République', pilier du projet républicain."
+    },
+    {
+        evenement: "Légalisation des syndicats",
+        annee: 1884,
+        trivia: "La loi Waldeck-Rousseau du 21 mars 1884 autorise la création de syndicats professionnels en France, mettant fin à l'interdiction de la loi Le Chapelier de 1791. La CGT sera fondée onze ans plus tard. C'est le point de départ du mouvement ouvrier organisé en France."
+    },
+    {
+        evenement: "Vaccin contre la rage par Pasteur",
+        annee: 1885,
+        trivia: "Le 6 juillet 1885, Louis Pasteur vaccine avec succès Joseph Meister, un enfant mordu par un chien enragé. C'est la première vaccination humaine contre la rage. Pasteur, qui n'était pas médecin, risquait des poursuites — il attendit dix jours avant d'annoncer le succès du traitement."
+    },
+    {
+        evenement: "Inauguration de la Tour Eiffel",
+        annee: 1889,
+        trivia: "Construite en 26 mois pour l'Exposition universelle par 300 ouvriers, la Tour Eiffel devait être démolie en 1909. Elle fut sauvée grâce à son utilité comme antenne de télégraphie sans fil. Gustave Eiffel y avait aménagé un appartement personnel au sommet et la surnommait sa 'dame de fer'."
+    },
+    {
+        evenement: "Arrestation du capitaine Dreyfus",
+        annee: 1894,
+        trivia: "Le 15 octobre 1894, le capitaine Alfred Dreyfus, officier juif alsacien, est arrêté pour haute trahison — accusé à tort d'avoir livré des documents à l'Allemagne. Son procès inique déclenche l'une des plus grandes crises politiques de la France, divisant le pays entre dreyfusards et antidreyfusards."
+    },
+    {
+        evenement: "Invention du cinématographe",
+        annee: 1895,
+        trivia: "Le 28 décembre 1895, les frères Lumière organisent la première projection publique payante au Grand Café du boulevard des Capucines à Paris. Parmi les films : 'L'Arrivée d'un train en gare de La Ciotat', qui aurait fait fuir les spectateurs terrorisés à l'idée d'être écrasés."
+    },
+    {
+        evenement: "Premiers Jeux Olympiques modernes",
+        annee: 1896,
+        trivia: "Le 6 avril 1896, le baron Pierre de Coubertin inaugure les premiers Jeux Olympiques modernes à Athènes, avec 241 athlètes de 14 nations. Coubertin s'était inspiré des jeux antiques et du sport anglais pour forger l'idéal olympique : 'l'important, c'est de participer'."
+    },
+    {
+        evenement: "\"J'accuse\" d'Émile Zola",
+        annee: 1898,
+        trivia: "Le 13 janvier 1898, Zola publie en une de L'Aurore une lettre ouverte au président intitulée 'J'accuse…!', dénonçant l'injustice du procès Dreyfus. Diffusé à 300 000 exemplaires, le texte vaut à Zola une condamnation pour diffamation — il s'exile en Angleterre pour éviter la prison."
+    },
+    {
+        evenement: "Exposition universelle de Paris",
+        annee: 1900,
+        trivia: "L'Exposition universelle de 1900 attire 50 millions de visiteurs à Paris en sept mois — un record mondial. Elle inaugure la gare d'Orsay, le Grand et le Petit Palais, le pont Alexandre-III et le métro parisien. C'est l'apogée de la Belle Époque, insouciante et flamboyante."
+    },
+    {
+        evenement: "Éruption de la Montagne Pelée",
+        annee: 1902,
+        trivia: "Le 8 mai 1902, le volcan Montagne Pelée explose en Martinique et détruit la ville de Saint-Pierre en deux minutes. Les 28 000 habitants meurent asphyxiés par une nuée ardente à 700 °C. Un seul survivant connu dans la ville : un prisonnier protégé par les murs épais de son cachot."
+    },
+    {
+        evenement: "Premier Tour de France cycliste",
+        annee: 1903,
+        trivia: "Le 1er juillet 1903, le premier Tour de France est lancé par le journal L'Auto pour concurrencer Le Vélo. Six étapes, 2 428 km, 60 partants, 21 finisseurs. Maurice Garin remporte l'épreuve en 94 heures et 33 minutes à une moyenne de 25,7 km/h — sans assistance ni voiture-balai."
+    },
+    {
+        evenement: "Séparation des Églises et de l'État",
+        annee: 1905,
+        trivia: "La loi du 9 décembre 1905 met fin au Concordat de 1801 et sépare officiellement les Églises de l'État. L'État ne reconnaît, ne salarie ni ne subventionne plus aucun culte. Cette loi, âprement combattue par l'Église catholique, fonde le principe de laïcité — pierre angulaire de la République française."
+    },
+    {
+        evenement: "Réhabilitation du capitaine Dreyfus",
+        annee: 1906,
+        trivia: "Le 12 juillet 1906, la Cour de cassation réhabilite Dreyfus, innocenté après douze ans de combat judiciaire. Le vrai traître, le commandant Esterhazy, avait avoué dès 1899 mais la hiérarchie militaire avait couvert l'affaire. Dreyfus est réintégré dans l'armée avec le grade de chef de bataillon."
+    },
+    {
+        evenement: "Blériot traverse la Manche en avion",
+        annee: 1909,
+        trivia: "Le 25 juillet 1909, Louis Blériot traverse la Manche de Calais à Douvres en 36 minutes à bord de son monoplan Blériot XI, remportant le prix de 1 000 livres du Daily Mail. Winston Churchill dira plus tard que cette traversée prouve que 'la mer n'est plus une défense suffisante' pour l'Angleterre."
+    },
+    {
+        evenement: "Création du Sacre du printemps de Stravinsky",
+        annee: 1913,
+        trivia: "Le 29 mai 1913, la première du Sacre du printemps de Stravinsky, chorégraphié par Nijinski pour les Ballets russes, provoque une émeute au Théâtre des Champs-Élysées : sifflets, huées et bagarres dans la salle. Les rythmes sauvages révolutionnent la musique — aujourd'hui c'est l'une des œuvres les plus jouées au monde."
+    },
+
+    // --- Guerres mondiales (1914–1945) ---
+    {
+        evenement: "Assassinat de l'archiduc François-Ferdinand à Sarajevo",
+        annee: 1914,
+        trivia: "Le 28 juin 1914, l'héritier de l'empire austro-hongrois est assassiné à Sarajevo par Gavrilo Princip, un nationaliste serbe de 19 ans. Cet attentat déclenche un effet domino diplomatique : en six semaines, toute l'Europe est en guerre par le jeu des alliances."
+    },
+    {
+        evenement: "Bataille de Verdun",
+        annee: 1916,
+        trivia: "De février à décembre 1916, Français et Allemands s'affrontent dans la plus longue bataille de la Première Guerre mondiale. En dix mois de combats, 300 000 soldats meurent et 400 000 sont blessés pour un gain territorial quasiment nul. Verdun devient le symbole du sacrifice inutile et de l'horreur de la guerre des tranchées."
+    },
+    {
+        evenement: "Entrée en guerre des États-Unis",
+        annee: 1917,
+        trivia: "Le 6 avril 1917, les États-Unis déclarent la guerre à l'Allemagne après la reprise de la guerre sous-marine à outrance et la révélation du télégramme Zimmermann, dans lequel l'Allemagne proposait au Mexique de reconquérir le Texas. L'arrivée des 'doughboys' américains sera décisive pour l'issue du conflit."
+    },
+    {
+        evenement: "Révolution d'Octobre en Russie",
+        annee: 1917,
+        trivia: "Dans la nuit du 25 au 26 octobre 1917, les bolcheviks de Lénine s'emparent du pouvoir à Petrograd dans un coup d'État quasi sans violence. La Russie signe l'armistice avec l'Allemagne en mars 1918 et se retire de la guerre. C'est la fin de l'empire des tsars et la naissance de l'URSS."
+    },
+    {
+        evenement: "Armistice du 11 novembre",
+        annee: 1918,
+        trivia: "Le 11 novembre 1918 à 11h, l'armistice met fin aux combats de la Première Guerre mondiale. Signé dans un wagon de chemin de fer dans la forêt de Compiègne, il sera délibérément choisi par Hitler pour la signature de l'armistice français en juin 1940 — dans le même wagon, sorti du musée pour l'occasion."
+    },
+    {
+        evenement: "Traité de Versailles",
+        annee: 1919,
+        trivia: "Signé le 28 juin 1919, le traité de Versailles impose à l'Allemagne la perte de 13 % de son territoire, 132 milliards de marks-or de réparations et une armée limitée à 100 000 hommes. John Maynard Keynes prédit que ces conditions humiliantes entraîneront une catastrophe économique — et une nouvelle guerre."
+    },
+    {
+        evenement: "Occupation française de la Ruhr",
+        annee: 1923,
+        trivia: "En janvier 1923, la France et la Belgique occupent militairement le bassin industriel de la Ruhr pour forcer l'Allemagne à payer ses réparations. L'Allemagne répond par une grève générale financée par la planche à billets, provoquant une hyperinflation vertigineuse : un dollar vaut 4 200 milliards de marks en novembre."
+    },
+    {
+        evenement: "Krach boursier de Wall Street",
+        annee: 1929,
+        trivia: "Le 24 octobre 1929, 'jeudi noir', la Bourse de New York s'effondre. Le 29 octobre, 'mardi noir', 16 millions d'actions sont vendues en une journée. La crise se propage au monde entier : en trois ans, la production industrielle américaine chute de 50 % et 13 millions d'Américains se retrouvent au chômage."
+    },
+    {
+        evenement: "Hitler nommé chancelier d'Allemagne",
+        annee: 1933,
+        trivia: "Le 30 janvier 1933, le président Hindenburg nomme Adolf Hitler chancelier du Reich. Le parti nazi, qui n'avait obtenu que 33 % des voix, s'empare rapidement du pouvoir total. L'incendie du Reichstag (27 février) sert de prétexte pour suspendre les libertés civiles et instaurer la dictature."
+    },
+    {
+        evenement: "Le Front Populaire arrive au pouvoir",
+        annee: 1936,
+        trivia: "Le 3 mai 1936, le Front Populaire — alliance SFIO, radicaux et PCF — remporte les élections. Léon Blum forme le premier gouvernement socialiste de France. Les accords Matignon qui suivent accordent les congés payés, la semaine de 40 heures et la liberté syndicale — conquêtes sociales encore en vigueur aujourd'hui."
+    },
+    {
+        evenement: "Bombardement de Guernica",
+        annee: 1937,
+        trivia: "Le 26 avril 1937, l'aviation nazie bombarde la ville basque de Guernica pendant la guerre civile espagnole, tuant des centaines de civils. Picasso, horrifié, peint en quelques semaines sa toile monumentale 'Guernica', devenu le symbole universel de la barbarie de la guerre aérienne contre les populations civiles."
+    },
+    {
+        evenement: "Accords de Munich",
+        annee: 1938,
+        trivia: "Le 30 septembre 1938, la France et l'Angleterre cèdent les Sudètes tchécoslovaques à Hitler, espérant acheter la paix. Chamberlain rentre à Londres en proclamant 'la paix pour notre temps'. Churchill qualifie l'accord de 'défaite totale et sans guerre'. Six mois plus tard, Hitler envahit le reste de la Tchécoslovaquie."
+    },
+    {
+        evenement: "Invasion de la Pologne — début de la Seconde Guerre mondiale",
+        annee: 1939,
+        trivia: "Le 1er septembre 1939, l'Allemagne envahit la Pologne avec 1,5 million de soldats. La France et le Royaume-Uni déclarent la guerre le 3 septembre. S'ensuit la 'drôle de guerre' : huit mois sans combats significatifs à l'Ouest, jusqu'à l'offensive éclair allemande de mai 1940."
+    },
+    {
+        evenement: "Appel du 18 juin du général de Gaulle",
+        annee: 1940,
+        trivia: "Le 18 juin 1940, depuis les studios de la BBC à Londres, de Gaulle lance son appel à la résistance : 'La France a perdu une bataille ! Mais la France n'a pas perdu la guerre !' Seules quelques centaines de personnes l'entendent en direct. Retransmis et recopié, ce message devient le fondement de la France libre."
+    },
+    {
+        evenement: "Attaque japonaise sur Pearl Harbor",
+        annee: 1941,
+        trivia: "Le 7 décembre 1941, la marine japonaise attaque par surprise la base navale américaine de Pearl Harbor à Hawaï. L'attaque dure 110 minutes et coule ou endommage 18 navires. Roosevelt qualifie le 7 décembre de 'date qui vivra dans l'infamie' et les États-Unis entrent dans la guerre le lendemain."
+    },
+    {
+        evenement: "Rafle du Vél d'Hiv",
+        annee: 1942,
+        trivia: "Les 16 et 17 juillet 1942, la police française arrête 13 152 Juifs à Paris et en banlieue, dont 4 115 enfants. Entassés au Vélodrome d'Hiver, ils sont ensuite déportés vers Auschwitz. En 1995, Jacques Chirac est le premier président français à reconnaître officiellement la responsabilité de l'État dans cette rafle."
+    },
+    {
+        evenement: "Débarquement en Normandie",
+        annee: 1944,
+        trivia: "Le 6 juin 1944, l'opération Overlord débarque 156 000 soldats alliés sur les plages normandes en une seule journée — la plus grande opération amphibie de l'Histoire. Les combats du Débarquement et de la bataille de Normandie font 425 000 morts : Alliés, Allemands et civils normands."
+    },
+    {
+        evenement: "Libération de Paris",
+        annee: 1944,
+        trivia: "Le 25 août 1944, la 2e division blindée du général Leclerc entre dans Paris, libérant la capitale après quatre ans d'occupation. Le lendemain, de Gaulle descend les Champs-Élysées sous les acclamations d'une foule immense, affirmant que Paris s'est 'libéré lui-même' — effaçant symboliquement la honte de 1940."
+    },
+    {
+        evenement: "Capitulation de l'Allemagne nazie",
+        annee: 1945,
+        trivia: "Le 8 mai 1945, l'Allemagne nazie capitule sans conditions à Reims, puis à Berlin. Hitler s'était suicidé le 30 avril dans son bunker. En Europe, la guerre s'achève après cinq ans et huit mois de combats — au prix d'environ 70 millions de morts dans le monde, dont 6 millions de Juifs exterminés."
+    },
+    {
+        evenement: "Bombes atomiques sur Hiroshima et Nagasaki",
+        annee: 1945,
+        trivia: "Le 6 août 1945, les États-Unis larguent la première bombe atomique sur Hiroshima (80 000 morts instantanés), suivie d'une deuxième sur Nagasaki le 9 août. Le Japon capitule le 15 août, mettant fin à la Seconde Guerre mondiale. L'humanité entre dans l'ère atomique, avec la menace permanente de sa propre destruction."
+    },
+
     // ===== RÉVOLUTION FRANÇAISE (1789-1799) =====
     {
         evenement: "Réunion des États généraux à Versailles",

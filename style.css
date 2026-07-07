@@ -69,15 +69,15 @@ body {
 }
 
 #ecran-accueil {
-    max-width: 960px;
+    max-width: 1100px;
 }
 
 #grille-epoques {
     display: grid;
-    grid-template-columns: repeat(5, 1fr);
+    grid-template-columns: repeat(6, 1fr);
     grid-template-rows: repeat(2, auto);
     grid-auto-flow: column;
-    column-gap: 16px;
+    column-gap: 12px;
     row-gap: 8px;
     margin-top: 12px;
 }
@@ -160,7 +160,7 @@ body {
     }
     #grille-epoques {
         grid-template-columns: 1fr 1fr;
-        grid-template-rows: repeat(5, auto);
+        grid-template-rows: repeat(6, auto);
         column-gap: 40px;
     }
 }
@@ -472,6 +472,20 @@ small {
 }
 .btn-second-empire:hover, .btn-second-empire:focus {
     background-color: #5c330e;
+}
+
+.btn-troisieme-republique {
+    background-color: #1a6b4a; /* Vert républicain — Belle Époque */
+}
+.btn-troisieme-republique:hover, .btn-troisieme-republique:focus {
+    background-color: #125236;
+}
+
+.btn-guerres-mondiales {
+    background-color: #4a4a3a; /* Kaki militaire */
+}
+.btn-guerres-mondiales:hover, .btn-guerres-mondiales:focus {
+    background-color: #33332a;
 }
 
 /* ===== HUD (score + vies) ===== */
