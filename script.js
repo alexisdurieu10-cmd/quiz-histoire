@@ -53,8 +53,10 @@ function getEpoque(annee) {
     if (annee <= 1492) return "moyen-age";
     if (annee <= 1620) return "renaissance";
     if (annee <= 1715) return "classique";
+    if (annee >= 1716 && annee <= 1788) return "lumieres";
     if (annee >= 1789 && annee <= 1799) return "revolution";
-    if (annee >= 1804 && annee <= 1815) return "premier-empire";
+    if (annee >= 1800 && annee <= 1815) return "premier-empire";
+    if (annee >= 1816 && annee <= 1851) return "restauration";
     if (annee >= 1852 && annee <= 1870) return "second-empire";
     return "autre";
 }
@@ -465,8 +467,10 @@ document.getElementById("compte-antiquite").textContent        = `${QUESTIONS.fi
 document.getElementById("compte-moyen-age").textContent        = `${QUESTIONS.filter(q => qHist(q) && getEpoque(q.annee) === "moyen-age").length} questions`;
 document.getElementById("compte-renaissance").textContent      = `${QUESTIONS.filter(q => qHist(q) && getEpoque(q.annee) === "renaissance").length} questions`;
 document.getElementById("compte-classique").textContent        = `${QUESTIONS.filter(q => qHist(q) && getEpoque(q.annee) === "classique").length} questions`;
+document.getElementById("compte-lumieres").textContent        = `${QUESTIONS.filter(q => qHist(q) && getEpoque(q.annee) === "lumieres").length} questions`;
 document.getElementById("compte-revolution").textContent       = `${QUESTIONS.filter(q => qHist(q) && getEpoque(q.annee) === "revolution").length} questions`;
 document.getElementById("compte-premier-empire").textContent   = `${QUESTIONS.filter(q => qHist(q) && getEpoque(q.annee) === "premier-empire").length} questions`;
+document.getElementById("compte-restauration").textContent    = `${QUESTIONS.filter(q => qHist(q) && getEpoque(q.annee) === "restauration").length} questions`;
 document.getElementById("compte-second-empire").textContent    = `${QUESTIONS.filter(q => qHist(q) && getEpoque(q.annee) === "second-empire").length} questions`;
 
 // Affiche le nombre de questions sous chaque bouton du menu art.
@@ -735,6 +739,46 @@ function creerPinceau() {
     return g;
 }
 
+// Bougie : corps crème, mèche sombre, flamme orange avec lueur jaune
+function creerBougie() {
+    const g = new THREE.Group();
+    const corps = new THREE.Mesh(new THREE.CylinderGeometry(0.22, 0.22, 1.6, 12), mat(0xfff8dc, 60));
+    corps.position.y = -0.1;
+    g.add(corps);
+    const meche = new THREE.Mesh(new THREE.CylinderGeometry(0.02, 0.02, 0.2, 6), mat(0x1a0a00));
+    meche.position.y = 0.8;
+    g.add(meche);
+    const flamme = new THREE.Mesh(new THREE.ConeGeometry(0.15, 0.45, 8), mat(0xff8c00, 80));
+    flamme.position.y = 1.15;
+    g.add(flamme);
+    const lueur = new THREE.Mesh(new THREE.ConeGeometry(0.08, 0.28, 8), mat(0xffff80, 200));
+    lueur.position.y = 1.1;
+    g.add(lueur);
+    g.scale.setScalar(0.82);
+    return g;
+}
+
+// Torche : manche bois, tête large, flamme orange + lueur jaune
+function creerTorche() {
+    const g = new THREE.Group();
+    const manche = new THREE.Mesh(new THREE.CylinderGeometry(0.1, 0.12, 1.4, 8), mat(0x5c3d1e));
+    manche.position.y = -0.4;
+    g.add(manche);
+    const tete = new THREE.Mesh(new THREE.CylinderGeometry(0.22, 0.15, 0.4, 8), mat(0x8b4513));
+    tete.position.y = 0.5;
+    g.add(tete);
+    const flamme = new THREE.Mesh(new THREE.ConeGeometry(0.28, 0.8, 8), mat(0xff4500, 80));
+    flamme.position.y = 1.1;
+    g.add(flamme);
+    const lueur = new THREE.Mesh(new THREE.ConeGeometry(0.14, 0.55, 8), mat(0xffcc00, 180));
+    lueur.position.y = 1.05;
+    g.add(lueur);
+    g.scale.setScalar(0.82);
+    return g;
+}
+
+creerScene3D("canvas-lumieres",       creerBougie,     null, "cellule-lumieres");
 creerScene3D("canvas-revolution",     creerGuillotine, null, "cellule-revolution");
 creerScene3D("canvas-premier-empire", creerLivre,      null, "cellule-premier-empire");
+creerScene3D("canvas-restauration",   creerTorche,     null, "cellule-restauration");
 creerScene3D("canvas-second-empire",  creerRails,      null, "cellule-second-empire");

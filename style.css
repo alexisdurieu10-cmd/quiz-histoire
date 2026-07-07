@@ -69,15 +69,15 @@ body {
 }
 
 #ecran-accueil {
-    max-width: 800px;
+    max-width: 960px;
 }
 
 #grille-epoques {
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(5, 1fr);
     grid-template-rows: repeat(2, auto);
     grid-auto-flow: column;
-    column-gap: 24px;
+    column-gap: 16px;
     row-gap: 8px;
     margin-top: 12px;
 }
@@ -160,7 +160,7 @@ body {
     }
     #grille-epoques {
         grid-template-columns: 1fr 1fr;
-        grid-template-rows: repeat(4, auto);
+        grid-template-rows: repeat(5, auto);
         column-gap: 40px;
     }
 }
@@ -430,6 +430,20 @@ small {
 }
 .btn-classique:hover, .btn-classique:focus {
     background-color: #154360;
+}
+
+.btn-lumieres {
+    background-color: #c87a0a; /* Ambre doré — lumières des philosophes */
+}
+.btn-lumieres:hover, .btn-lumieres:focus {
+    background-color: #9e6008;
+}
+
+.btn-restauration {
+    background-color: #2e6b9e; /* Bleu ardoise — monarchie de Juillet */
+}
+.btn-restauration:hover, .btn-restauration:focus {
+    background-color: #225280;
 }
 
 .btn-revolution {

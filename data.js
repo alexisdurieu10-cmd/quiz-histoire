@@ -674,7 +674,129 @@ const QUESTIONS = [
         trivia : "Le Canal du Midi, reliant la Méditerranée à l'Atlantique sur 240 km, est achevé en 1681. Commandé par Colbert et conçu par Pierre-Paul Riquet, c'est l'un des plus grands chefs-d'œuvre d'ingénierie du XVIIe siècle, inscrit au patrimoine mondial de l'UNESCO."
     },
 
-    // --- Premier Empire (1804–1815) ---
+    // --- Lumières & XVIIIe siècle (1716–1788) ---
+    {
+        evenement: "Banqueroute du système de Law",
+        annee: 1720,
+        trivia: "John Law, financier écossais, convainc le Régent Philippe d'Orléans de créer une banque nationale et une compagnie commerciale exploitant la Louisiane. La spéculation fait monter les actions de 500 %, puis l'effondrement de la bulle en 1720 ruine des milliers de familles françaises et traumatise le pays pendant un siècle."
+    },
+    {
+        evenement: "Le cardinal de Fleury devient principal ministre de Louis XV",
+        annee: 1726,
+        trivia: "André-Hercule de Fleury, précepteur de Louis XV, prend les rênes du gouvernement à l'âge de 73 ans. Son règne de dix-sept ans apporte stabilité et prospérité à la France : il redresse les finances, pacifie l'Europe et meurt en 1743 à 90 ans, toujours en exercice."
+    },
+    {
+        evenement: "Début de la guerre de Succession d'Autriche",
+        annee: 1740,
+        trivia: "La mort de l'empereur Charles VI sans héritier mâle déclenche une guerre européenne : plusieurs puissances contestent l'héritage de sa fille Marie-Thérèse. La France soutient les prétendants contre l'Autriche, mais sortira du conflit sans gains territoriaux malgré de brillantes victoires militaires."
+    },
+    {
+        evenement: "Bataille de Fontenoy",
+        annee: 1745,
+        trivia: "Le 11 mai 1745, le maréchal de Saxe remporte une victoire éclatante sur les Anglais et leurs alliés aux Pays-Bas autrichiens. La légende veut que les officiers français aient crié aux Anglais : 'Messieurs les Anglais, tirez les premiers !' — une politesse dont l'authenticité reste débattue par les historiens."
+    },
+    {
+        evenement: "Traité d'Aix-la-Chapelle",
+        annee: 1748,
+        trivia: "Le traité d'Aix-la-Chapelle met fin à la guerre de Succession d'Autriche après huit ans de conflits. La France, victorieuse sur le terrain, rend toutes ses conquêtes — ce qui donne naissance à l'expression 'bête comme la paix' : gagner la guerre pour ne rien obtenir."
+    },
+    {
+        evenement: "Publication du premier tome de l'Encyclopédie",
+        annee: 1751,
+        trivia: "Dirigée par Diderot et d'Alembert, l'Encyclopédie ou Dictionnaire raisonné des sciences, des arts et des métiers paraît en 28 volumes entre 1751 et 1772. Ce monument des Lumières rassemble 150 auteurs dont Voltaire et Rousseau, et sera condamné par les autorités religieuses."
+    },
+    {
+        evenement: "Tremblement de terre de Lisbonne",
+        annee: 1755,
+        trivia: "Le 1er novembre 1755, un séisme dévastateur suivi d'un tsunami et d'incendies rase Lisbonne, faisant entre 30 000 et 40 000 morts. La catastrophe provoque une crise philosophique en Europe : Voltaire la cite dans Candide pour réfuter l'optimisme de Leibniz selon lequel 'tout est pour le mieux'."
+    },
+    {
+        evenement: "Renversement des alliances",
+        annee: 1756,
+        trivia: "En 1756, l'Europe est stupéfaite par une révolution diplomatique : la France et l'Autriche, ennemies héréditaires depuis deux siècles, s'allient contre la Prusse et l'Angleterre. Ce renversement est en partie l'œuvre de Marie-Thérèse d'Autriche, mère de la future Marie-Antoinette."
+    },
+    {
+        evenement: "Publication de Candide de Voltaire",
+        annee: 1759,
+        trivia: "Publié anonymement sous le pseudonyme 'le docteur Ralph', Candide ou l'Optimisme est le conte philosophique le plus célèbre de Voltaire. Il y ridiculise la philosophie de Leibniz à travers les aventures burlesques d'un héros naïf confronté aux guerres, tremblements de terre et inquisitions."
+    },
+    {
+        evenement: "Publication du Contrat social de Rousseau",
+        annee: 1762,
+        trivia: "Dans Du contrat social, Jean-Jacques Rousseau affirme que le pouvoir politique découle d'un pacte librement consenti par les citoyens : 'L'homme est né libre, et partout il est dans les fers.' Cet ouvrage influencera directement la Révolution française et les démocraties modernes."
+    },
+    {
+        evenement: "Traité de Paris — fin de la guerre de Sept Ans",
+        annee: 1763,
+        trivia: "Le traité de Paris de 1763 est une catastrophe pour la France : elle cède le Canada, une partie de la Louisiane et ses comptoirs en Inde à l'Angleterre. La France perd son premier empire colonial au profit de la Grande-Bretagne, qui devient la première puissance mondiale."
+    },
+    {
+        evenement: "Avènement de Louis XVI",
+        annee: 1774,
+        trivia: "À la mort de Louis XV emporté par la variole, Louis XVI monte sur le trône à seulement 19 ans avec son épouse Marie-Antoinette, 18 ans. Conscient du fardeau, il aurait murmuré en apprenant la nouvelle : 'Que Dieu nous guide et nous protège, nous régnons trop jeunes.'"
+    },
+    {
+        evenement: "Déclaration d'indépendance américaine",
+        annee: 1776,
+        trivia: "Rédigée principalement par Thomas Jefferson, la Déclaration d'indépendance du 4 juillet 1776 proclame la séparation des treize colonies américaines d'avec la Grande-Bretagne. Elle s'inspire directement des philosophes des Lumières français, notamment Montesquieu et Locke."
+    },
+    {
+        evenement: "Mort de Voltaire",
+        annee: 1778,
+        trivia: "François-Marie Arouet, dit Voltaire, meurt à Paris le 30 mai 1778 à l'âge de 83 ans, après un retour triomphal après 28 ans d'exil. Jean-Jacques Rousseau, son grand rival philosophique, mourut lui aussi en 1778, à quelques semaines d'intervalle."
+    },
+    {
+        evenement: "Reddition de Yorktown",
+        annee: 1781,
+        trivia: "Le 19 octobre 1781, le général britannique Cornwallis capitule devant les troupes américaines et françaises à Yorktown. La France a joué un rôle décisif : La Fayette commandait une partie des forces terrestres et l'amiral de Grasse avait bloqué les secours britanniques par mer."
+    },
+    {
+        evenement: "Premier vol en montgolfière habité",
+        annee: 1783,
+        trivia: "Le 21 novembre 1783, le marquis d'Arlandes et Pilâtre de Rozier s'élèvent au-dessus de Paris à bord d'un ballon conçu par les frères Montgolfier. Ce premier vol humain en aérostat dure 25 minutes et couvre 9 kilomètres, ouvrant l'ère de la conquête de l'air."
+    },
+    {
+        evenement: "Première du Mariage de Figaro",
+        annee: 1784,
+        trivia: "La comédie de Beaumarchais, interdite pendant trois ans par Louis XVI qui y voyait une menace subversive, triomphe enfin à la Comédie-Française le 27 avril 1784. Napoléon dira plus tard que cette pièce était 'déjà la Révolution en action'."
+    },
+    {
+        evenement: "Affaire du collier de la reine",
+        annee: 1785,
+        trivia: "Une escroquerie impliquant un collier de diamants à 1,6 million de livres éclabousse la réputation de Marie-Antoinette, bien qu'elle soit innocente. Montée par la comtesse de La Motte, l'affaire convainc l'opinion publique que la reine est corrompue, contribuant à la crise de confiance pré-révolutionnaire."
+    },
+    {
+        evenement: "Assemblée des notables",
+        annee: 1787,
+        trivia: "Face à la banqueroute de l'État, Louis XVI convoque une assemblée de 144 notables pour faire passer des réformes fiscales. Les nobles refusent d'être taxés et renvoient le problème aux États généraux, déclenchant involontairement le processus qui mènera à la Révolution de 1789."
+    },
+    {
+        evenement: "Convocation des États généraux",
+        annee: 1788,
+        trivia: "Le 8 août 1788, Louis XVI annonce la convocation des États généraux pour le 1er mai 1789 — la première réunion depuis 1614. La question de la représentation du tiers état, qui représente 97 % de la population mais n'a qu'un tiers des voix, va diviser la France et précipiter la Révolution."
+    },
+
+    // --- Premier Empire (1800–1815) ---
+    {
+        evenement: "Bataille de Marengo",
+        annee: 1800,
+        trivia: "Le 14 juin 1800, Napoléon Bonaparte remporte une victoire décisive contre l'Autriche en Italie du Nord. La bataille semblait perdue en début d'après-midi avant que le général Desaix, arrivant en renfort, ne renverse la situation — au prix de sa propre vie."
+    },
+    {
+        evenement: "Concordat entre Napoléon et le pape Pie VII",
+        annee: 1801,
+        trivia: "Le Concordat de 1801 réconcilie la France révolutionnaire avec l'Église catholique après dix ans de rupture. Napoléon y reconnaît le catholicisme comme religion de la majorité des Français, mais conserve le contrôle de la nomination des évêques."
+    },
+    {
+        evenement: "Création de la Légion d'honneur",
+        annee: 1802,
+        trivia: "Fondée par Napoléon Bonaparte le 19 mai 1802, la Légion d'honneur récompense les mérites civils et militaires rendus à la France. Plus de deux siècles plus tard, elle reste la plus haute distinction française, avec environ 75 000 membres vivants."
+    },
+    {
+        evenement: "Vente de la Louisiane aux États-Unis",
+        annee: 1803,
+        trivia: "Pour financer ses guerres européennes, Napoléon vend en 1803 la Louisiane française aux États-Unis pour 15 millions de dollars. Ce territoire de 2,1 millions de km² représente aujourd'hui 15 États américains — l'une des plus grandes transactions territoriales de l'Histoire."
+    },
     {
         evenement: "Sacre de Napoléon Ier",
         annee: 1804,
@@ -924,6 +1046,108 @@ const QUESTIONS = [
         evenement: "Deuxième abdication de Napoléon",
         annee: 1815,
         trivia : "Le 22 juin 1815, quatre jours après Waterloo, Napoléon abdique pour la deuxième et dernière fois en faveur de son fils. Les Chambres refusent de le soutenir. Il espère s'embarquer pour l'Amérique mais se retrouve prisonnier des Anglais, qui l'envoient à Sainte-Hélène."
+    },
+
+    // --- Restauration & Monarchie de Juillet (1816–1851) ---
+    {
+        evenement: "Naufrage de la Méduse",
+        annee: 1816,
+        trivia: "Le 2 juillet 1816, la frégate Méduse s'échoue au large des côtes mauritaniennes. Faute de canots, 147 survivants sont abandonnés sur un radeau de fortune. Quinze jours plus tard, seuls 15 sont recueillis, les autres ayant succombé à la faim, à la soif et à la folie. Le tableau de Géricault immortalise le scandale."
+    },
+    {
+        evenement: "Assassinat du duc de Berry",
+        annee: 1820,
+        trivia: "Le 13 février 1820, le duc de Berry, neveu de Louis XVIII et dernier espoir dynastique des Bourbons, est poignardé à l'Opéra par un sellier bonapartiste nommé Louvel. Par une ironie du sort, sa veuve accouche sept mois plus tard du 'miracle' : le futur comte de Chambord."
+    },
+    {
+        evenement: "Mort de Napoléon à Sainte-Hélène",
+        annee: 1821,
+        trivia: "Napoléon Bonaparte meurt le 5 mai 1821 sur l'île de Sainte-Hélène après six ans d'exil. Les causes exactes de sa mort font encore débat : cancer de l'estomac selon la version officielle, empoisonnement à l'arsenic selon certains historiens. Il avait 51 ans."
+    },
+    {
+        evenement: "Champollion déchiffre les hiéroglyphes",
+        annee: 1822,
+        trivia: "Le 14 septembre 1822, Jean-François Champollion présente à l'Académie des inscriptions sa 'Lettre à M. Dacier', déchiffrant enfin l'écriture égyptienne antique grâce à la pierre de Rosette. Il entre en courant dans le bureau de son frère en criant 'Je tiens l'affaire !' avant de s'évanouir d'épuisement."
+    },
+    {
+        evenement: "Avènement de Charles X",
+        annee: 1824,
+        trivia: "À la mort de Louis XVIII, son frère Charles X monte sur le trône. Contrairement à Louis XVIII qui acceptait les compromis post-révolutionnaires, Charles X est un ultra-royaliste convaincu qui rêve de restaurer l'Ancien Régime. Son intransigeance mènera directement à la révolution de 1830."
+    },
+    {
+        evenement: "Sacre de Charles X à Reims",
+        annee: 1825,
+        trivia: "Charles X est le dernier roi de France à être sacré selon le rituel médiéval à Reims, avec onction du saint chrême et toucher des écrouelles. Cette cérémonie anachronique dans une France post-révolutionnaire choque l'opinion libérale et renforce l'image d'un roi vivant dans le passé."
+    },
+    {
+        evenement: "Première photographie par Nicéphore Niépce",
+        annee: 1826,
+        trivia: "Vers 1826, le Bourguignon Nicéphore Niépce réussit à fixer une image sur une plaque d'étain enduite de bitume de Judée : c'est la plus ancienne photographie conservée, une vue depuis sa fenêtre nécessitant plusieurs heures d'exposition. Il s'associera ensuite avec Louis Daguerre."
+    },
+    {
+        evenement: "Prise d'Alger par la France",
+        annee: 1830,
+        trivia: "Le 5 juillet 1830, les troupes françaises prennent Alger après trois semaines de campagne, mettant fin à trois siècles de domination ottomane. Charles X espérait que cette victoire coloniale restaurerait sa popularité — mais la révolution éclate trois semaines plus tard et le renverse quand même."
+    },
+    {
+        evenement: "Révolution de Juillet — les Trois Glorieuses",
+        annee: 1830,
+        trivia: "Les 27, 28 et 29 juillet 1830, Paris se soulève contre les ordonnances de Charles X qui supprimaient la liberté de la presse. En trois jours de barricades, les insurgés l'emportent. Charles X abdique et Louis-Philippe d'Orléans, le 'roi citoyen', monte sur le trône."
+    },
+    {
+        evenement: "Révolte des Canuts à Lyon",
+        annee: 1831,
+        trivia: "En novembre 1831, les tisserands de soie lyonnais se soulèvent pour obtenir un tarif minimum garanti. Sous leur drapeau noir figure l'inscription : 'Vivre en travaillant ou mourir en combattant.' C'est la première grande révolte ouvrière de l'histoire française, réprimée par l'armée."
+    },
+    {
+        evenement: "Insurrection républicaine de Paris",
+        annee: 1832,
+        trivia: "En juin 1832, des républicains tentent de profiter des funérailles du général Lamarque pour déclencher une insurrection. Victor Hugo s'en inspire directement pour les barricades des Misérables : le jeune Gavroche qui meurt en chantant est directement inspiré de ces journées."
+    },
+    {
+        evenement: "Loi Guizot sur l'instruction primaire",
+        annee: 1833,
+        trivia: "La loi Guizot du 28 juin 1833 oblige chaque commune à entretenir une école primaire de garçons. C'est la première grande loi française sur l'instruction publique, posant les bases du système éducatif qui sera complété cinquante ans plus tard par Jules Ferry avec la gratuité et la laïcité."
+    },
+    {
+        evenement: "Attentat de Fieschi contre Louis-Philippe",
+        annee: 1835,
+        trivia: "Le 28 juillet 1835, Giuseppe Fieschi tire sur le cortège de Louis-Philippe avec une 'machine infernale' de 25 fusils simultanés. Le roi est légèrement blessé mais 18 personnes meurent. L'attentat entraîne des lois restrictives sur la liberté de la presse, surnommées 'lois de septembre'."
+    },
+    {
+        evenement: "Inauguration de la ligne Paris–Saint-Germain",
+        annee: 1837,
+        trivia: "Le 26 août 1837, la reine Marie-Amélie inaugure la première ligne de chemin de fer à vapeur de la région parisienne. Les 19 kilomètres entre Paris et Saint-Germain-en-Laye sont parcourus en 27 minutes. Cette inauguration marque le début de la révolution ferroviaire française."
+    },
+    {
+        evenement: "Retour des cendres de Napoléon",
+        annee: 1840,
+        trivia: "Le 15 décembre 1840, le cercueil de Napoléon rapatrié de Sainte-Hélène est transporté solennellement sous l'Arc de Triomphe jusqu'aux Invalides devant une foule immense. Chateaubriand écrit : 'Le géant passait.' La cérémonie relance durablement le mythe napoléonien."
+    },
+    {
+        evenement: "Première loi française sur le travail des enfants",
+        annee: 1841,
+        trivia: "La loi du 22 mars 1841 interdit le travail en manufacture des enfants de moins de 8 ans et limite les horaires des plus jeunes. C'est la première loi sociale française, mais elle sera longtemps mal appliquée, faute d'inspecteurs du travail chargés de la faire respecter."
+    },
+    {
+        evenement: "Campagne des banquets",
+        annee: 1847,
+        trivia: "Face à l'interdiction des réunions politiques, l'opposition organise des 'banquets républicains' dans toute la France pour réclamer une réforme électorale. Quand Guizot interdit le banquet de Paris prévu le 22 février 1848, les parisiens descendent dans la rue : la révolution éclate le lendemain."
+    },
+    {
+        evenement: "Révolution de février — chute de Louis-Philippe",
+        annee: 1848,
+        trivia: "Le 22 février 1848, des barricades surgissent à Paris après l'interdiction du banquet réformiste. En deux jours, la Garde nationale fraternise avec les insurgés. Louis-Philippe abdique et s'enfuit en Angleterre déguisé en bourgeois sous le nom de 'M. Smith'. La IIe République est proclamée."
+    },
+    {
+        evenement: "Abolition définitive de l'esclavage dans les colonies françaises",
+        annee: 1848,
+        trivia: "Le 27 avril 1848, le décret Schoelcher abolit définitivement l'esclavage dans toutes les colonies françaises, libérant environ 250 000 personnes. Victor Schoelcher avait passé des années à documenter les horreurs de l'esclavage pour convaincre le gouvernement provisoire d'agir."
+    },
+    {
+        evenement: "Coup d'État du 2 décembre de Louis-Napoléon Bonaparte",
+        annee: 1851,
+        trivia: "Dans la nuit du 1er au 2 décembre 1851 — anniversaire d'Austerlitz — Louis-Napoléon Bonaparte dissout l'Assemblée nationale par un coup d'État. Victor Hugo tente de résister et doit fuir en exil. Un an plus tard, Louis-Napoléon se proclame Napoléon III."
     },
 
     // --- Second Empire (1852–1870) ---
